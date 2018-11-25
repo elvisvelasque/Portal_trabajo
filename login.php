@@ -45,7 +45,7 @@ u:hover {
    
 <div class="content-w3ls">
 	<div class="form-w3ls">
-		<form action="login.php" method="post">
+		<form action="user/jobseeker/index.php" method="post">
 			<div class="content-wthree1">
                 <div class="form-control">
                     <label class="header">Correo electrónico<span>:</span></label>

@@ -175,5 +175,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</th>
 	</table>
     </div>
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>© 2018 Multitron-Bolsa de trabajo . Todos los derechos reservados <a href="#"></a></p>
+            </div>
+        </div>
+    </footer>
   </body>
 </html>

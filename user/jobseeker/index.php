@@ -64,25 +64,69 @@ width:30%;
 					<li>
 						<div class="w3layouts-banner-top jarallax">
 							<div class="agileinfo-dot">
-								<div class="container">
-									<div class="agileits-banner-info">
-										<h3>Offering a wide range</h3>
-										<h6>of recruitment solution </h6>
-										<p></p>
-									
-									</div>	
+								<div class="container" style="color: #fff;">
+                                    <br><br><br><br><br>
+                                    <h2 align="center"> Historial de postulaciones</h2>
+                                    <br><br>
+                                    <div class="container">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
+                                                <tr style="background-color: rgba(211,211,211, .6)">
+                                                    <th style="text-align: center"><h4><b>#</b></h4></th>
+                                                    <th style="text-align: center"><h4><b>Fecha</b></h4></th>
+                                                    <th style="text-align: center"><h4><b>Lugar</b></h4></th>
+                                                    <th style="text-align: center"><h4><b>Puesto</b></h4></th>
+                                                    <th style="text-align: center"><h4><b>Estado</b></h4></th>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">1</td>
+                                                    <td align="center">12/11/2018</td>
+                                                    <td align="center">Lima</td>
+                                                    <td align="center">Practicante sistemas</td>
+                                                    <td align="center">Postulación</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">2</td>
+                                                    <td align="center">12/11/2018</td>
+                                                    <td align="center">Lima</td>
+                                                    <td align="center">Teleoperadora</td>
+                                                    <td align="center">Examen Psicológico</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">3</td>
+                                                    <td align="center">12/11/2018</td>
+                                                    <td align="center">Lima</td>
+                                                    <td align="center">Marketing y Diseño</td>
+                                                    <td align="center">Examen Psicológico</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">4</td>
+                                                    <td align="center">12/11/2018</td>
+                                                    <td align="center">Lima</td>
+                                                    <td align="center">Examen Conocimientos</td>
+                                                    <td align="center">Postulación</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">5</td>
+                                                    <td align="center">12/11/2018</td>
+                                                    <td align="center">Lima</td>
+                                                    <td align="center">Asistente</td>
+                                                    <td align="center">Postulación</td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br><br><br><br><br>
+                                    <br><br><br><br><br>
 								</div>
 							</div>
 						</div>
 					</li>
-					
-					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
 			<script src="js/responsiveslides.min.js"></script>
-			
-			<!--banner Slider starts Here-->
 		</div>
 	</div>
 	<!-- banner -->
@@ -98,29 +142,19 @@ width:30%;
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					  </button>
-						<div class="w3layouts-logo">
-							<h1><a href="index.html"> <span>Online</span>Job<span>portal</span></a></h1>
-						</div>
-						
 
-					</div>
-                <?php
-	$que = "select fname from job_seeker where email='$email'";
-	$run = mysqli_query($conn,$que);
-        $row=mysqli_fetch_array($run);
-	$name=$row['fname'];
-       ?>
-                                       <div class="welcome">
-							<h1><marquee>Welcome <?php echo $name; ?></marquee> </h1>
-					</div>
+                        <div class="w3layouts-logo">
+                            <h1><a href="index.html"> <span>Online</span>Job<span>portal</span></a></h1>
+                        </div>
+                    </div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 						<nav>
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="view.php">View Profile</a></li>
-								<li><a href="search_job.php">Search job</a></li>
-							    <li><a href="../../logout.php" >Logout</a></li>
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a href="#">Inicio</a></li>
+								<li><a href="view.php">Mi perfil</a></li>
+								<li><a href="search_job.php">Buscar trabajo</a></li>
+							    <li><a href="../../logout.php" >Cerrar sesión</a></li>
                                                                 
 							</ul>
 						</nav>
@@ -132,79 +166,5 @@ width:30%;
 	</div>
 
 	<!--below form display the records of the co-passenger details-->
-	<h2 align="center"> Jobs You Have Applied</h2>
-	 
-	<?php
-	$que = "select company_name,job.job_id,job_name,designation,applied_on from applied,job,job_provider where applied.job_id=job.job_id and jobprovider_email=email and jobseeker_email='$email'";
-	$run = mysqli_query($conn,$que);
-	if($run->num_rows>0)
-	{
-	?>
-    <div class="container">
-      <div class="table-responsive">
-        <table class="table table-bordered">
-           <tr>
-		        <td align="center"><h4><b>Company:</b></h4></td>
-		        <td align="center"><h4><b>Job Id</b></h4></td>
-				<td align="center"><h4><b>Job_Name:</b></h4></td>
-				<td align="center"><h4><b>Designation:</b></h4></td>
-				<td align="center"><h4><b>Applied On</b></h4></td>
-				<td align="center"><h4><b>Print Acknowledgment</b></h4></td>
-		<!--	<td align="center"><h4><b>Start_Date:</b></h4></td>
-				<td align="center"><h4><b>End_Date:</b></h4></td>
-				<td align="center"><h4><b>Min_Qualification:</b></h4></td>
-				<td align="center"><h4><b>Update</b></h4></td>
-				<td align="center"><h4><b>View Applied Candidates</b></h4></td> -->
-			</tr>
-			
-    <?php
-	while($row = mysqli_fetch_array($run))
-	{
-    ?>
-			<th>
-			<tr>
-            
-			    <td align="center"><?php echo $row["company_name"];?></td>
-				
-				
-				<td align="center"><?php echo $row["job_id"]; ?></td>
-            
-			
-                <td align="center"><?php echo $row["job_name"]; ?></td>
-            
-                
-                <td align="center"><?php echo $row["designation"]; ?></td>
-            
-                
-                <td align="center"><?php echo $row["applied_on"];?></td> 
-				
-				
-				<td align="center"><a class="btn btn-info btn-large" onclick="check();" href="acknowledgment.php?job_id=<?php echo $row['job_id']; ?> ">Print</a></td>
-            
-                     
-            <!--     <td><?php echo $row["start_date"];?></td>
-            
-                
-                <td><?php echo $row["end_date"];?></td>
-            
-                
-                <td><?php echo $row["min_qualification"];?></td>
-				
-				<td><a class="btn btn-info btn-large" onclick="check();" href="updatepostjob.php?job_id=<?php echo $row['job_id']; ?> ">Update</a></td>
-				
-				<td align="center"><a class="btn btn-info btn-large" onclick="check();" href="view_candidate.php?job_id=<?php echo $row['job_id']; ?> ">view</a></td>  -->
-            
-            </tr>
-			
-        
-      </div>
-      <?php
-	}
-	}
-	else echo"You haven't Apply for any job";
-	?>
-	</th>
-	</table>
-    </div>
-  </body>
+
 </html>
