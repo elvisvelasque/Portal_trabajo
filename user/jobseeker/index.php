@@ -1,6 +1,4 @@
-<?php
-require("job_seeker_incl.php");
- ?>
+
 <html>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,3 @@
-<?php
-require("job_provider_incl.php");
- ?>
 <html>
 <!DOCTYPE html>
 <html lang="en">
