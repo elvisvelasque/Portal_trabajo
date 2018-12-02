@@ -45,7 +45,7 @@ u:hover {
    
 <div class="content-w3ls">
 	<div class="form-w3ls">
-		<form action="user/jobseeker/index.php" method="post" id="form">
+		<form action="user/jobprovider/index.php" method="post" id="form">
 			<div class="content-wthree1">
                 <div class="form-control">
                     <label class="header">Correo electrónico<span>:</span></label>
@@ -66,7 +66,7 @@ u:hover {
         <br>
         <br>
         <div align="center">
-            <select name="rol" id="rol" >
+            <select name="rol" id="rol" onchange="select()">
                 <option value="1">Administrador</option>
                 <option value="2">Postulante</option>
             </select>
@@ -79,11 +79,12 @@ u:hover {
 </body>
 </html>
 <script type="application/javascript">
-    console.log(document.getElementById("rol").value);
-    if(document.getElementById("rol").value === 1){
-        document.getElementById("form").action = "user/jobseeker/index.php";
+    function select() {
+        console.log(document.getElementById("rol").value);
+        if(document.getElementById("rol").value === 1){
+            document.getElementById("form").action = "user/jobprovider/index.php";
+        }
+        else
+            document.getElementById("form").action = "user/jobseeker/index.php";
     }
-    else
-        document.getElementById("form").action = "user/jobprovider/index.php";
-
 </script>
