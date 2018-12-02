@@ -52,14 +52,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3layouts-banner-top jarallax">
 							<div class="agileinfo-dot">
-								<div class="container">
-									<div class="agileits-banner-info">
-										<h3>Offering a wide range</h3>
-										<h6>of recruitment solution </h6>
-										<p></p>
-									
-									</div>	
-								</div>
+                                <div class="container" style="color: #fff;">
+                                    <br><br><br><br><br>
+                                    <br><br>
+                                    <div class="container">
+                                        <div class="col-md-9">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
+                                                    <tr style="background-color: rgba(211,211,211, .6)">
+                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">1</td>
+                                                        <td>
+                                                            <p><b>Practicante de Sistemas</b></p>
+                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">2</td>
+                                                        <td>
+                                                            <p><b>Practicante de Contabilidad</b></p>
+                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">3</td>
+                                                        <td>
+                                                            <p><b>Teleoperadora</b></p>
+                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">4</td>
+                                                        <td>
+                                                            <p><b>Asistente de ventas</b></p>
+                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">5</td>
+                                                        <td>
+                                                            <p><b>Soporte Técnico</b></p>
+                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-offset-1 col-md-2">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
+                                                    <tr style="background-color: rgba(211,211,211, .6)">
+                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
+                                                        <th style="text-align: center"><h4><b></b></h4></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">Abierto</td>
+                                                        <td>20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">Pausado</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">Cerrado</td>
+                                                        <td>5</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br><br>
+                                </div>
 							</div>
 						</div>
 					</li>
@@ -92,89 +159,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-						<nav>
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">Home</a></li>
-								<li><a href="postjob.php">Post job</a></li>
-							    <li><a href="../../logout.php" >Logout</a></li>
-                                                                
-							</ul>
-						</nav>
-					</div>
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                        <nav>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="index.php">Inicio</a></li>
+                                <li><a href="jobs.php">Puestos laborales</a></li>
+                                <li><a href="index.php">Candidatos</a></li>
+                                <li><a href="../../logout.php" >Cerrar sesión</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
 					<!-- /.navbar-collapse -->
 				</nav>
 			</div>
 		</div>
 	</div>
 
-	<!--below form display the records of the co-passenger details-->
-	<h2 align="center"> Jobs Posted By You</h2>
-	 
-	<?php
-	$que = "select * from job where jobprovider_email='$email'";
-	$run = mysqli_query($conn,$que);
-	if($run->num_rows>0)
-	{
-	?>
-    <div class="container">
-      <div class="table-responsive">
-        <table class="table table-bordered">
-           <tr>
-				<td align="center"><h4><b>Job_Name:</b></h4></td>
-				<td align="center"><h4><b>Designation:</b></h4></td>
-				<td align="center"><h4><b>No_Of_Vacancy:</b></h4></td>
-				<td align="center"><h4><b>Salary:</b></h4></td>
-				<td align="center"><h4><b>Start_Date:</b></h4></td>
-				<td align="center"><h4><b>End_Date:</b></h4></td>
-				<td align="center"><h4><b>Min_Qualification:</b></h4></td>
-				<td align="center"><h4><b>Update</b></h4></td>
-				<td align="center"><h4><b>View Applied Candidates</b></h4></td>
-			</tr>
-			
-    <?php
-	while($row = mysqli_fetch_array($run))
-	{
-    ?>
-			<th>
-			<tr>
-            
-                <td><?php echo $row["job_name"]; ?></td>
-            
-                
-                <td><?php echo $row["designation"]; ?></td>
-            
-                
-                <td><?php echo $row["no_of_vacancy"];?></td>
-            
-                
-                <td><?php echo $row["salary"];?></td>
-            
-                
-                <td><?php echo $row["start_date"];?></td>
-            
-                
-                <td><?php echo $row["end_date"];?></td>
-            
-                
-                <td><?php echo $row["min_qualification"];?></td>
-				
-				<td><a class="btn btn-info btn-large" onclick="check();" href="updatepostjob.php?job_id=<?php echo $row['job_id']; ?> ">Update</a></td>
-				
-				<td align="center"><a class="btn btn-info btn-large" onclick="check();" href="view_candidate.php?job_id=<?php echo $row['job_id']; ?> ">view</a></td>
-            
-            </tr>
-			
-        
-      </div>
-      <?php
-	}
-	}
-	else echo"You haven't posted any job";
-	?>
-	</th>
-	</table>
-    </div>
+
     <footer>
         <div class="container">
             <div class="copyright">
