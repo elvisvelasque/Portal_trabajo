@@ -65,7 +65,7 @@ u:hover {
 	</div>
 </div>
 
-<div class="copyright"  align="center" style="color: #fff;">¿No tienes una cuenta?<a id="flip" href="#">Regístrate ahora</a></div>
+<div class="copyright"  align="center" style="color: #fff;">¿No tienes una cuenta?<a id="flip" href="register.php">Regístrate ahora</a></div>
 
 </body>
 </html>
