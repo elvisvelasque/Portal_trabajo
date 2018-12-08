@@ -72,16 +72,14 @@ width:30%;
 							<div class="agileinfo-dot">
 								<div class="container" style="color: #fff;">
                                     <br><br><br><br><br>
-<div align="left">
+<div align="Right">
   <br><br><br>
-            <select placeholder="Empleo" name="rol" id="rol" onchange="#">
-                <option value="1">Practicante</option>
-                <option value="2">Practicante</option>
-            </select>
-            <select placeholder="Estado" name="rol" id="rol" onchange="select()">
-                <option value="1">Postulación</option>
-                <option value="2">Examen</option>
-            </select>
+            <div ="col-sm-7">
+                            <input type="text" class="form-control" placeholder="Buscar" style="width: auto">
+                        </div>
+                        <div class="col-sm-5" style="align-items: left">
+                            <button type="button" class="btn btn-info">Buscar</button>
+                        </div>
         </div>                                    <br><br>
                                     <div class="container">
                                         <div class="table-responsive">
@@ -89,42 +87,43 @@ width:30%;
                                                 <tr style="background-color: rgba(211,211,211, .6)">
                                                     <th style="text-align: center"><h4><b>#</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Fecha</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Nombre</b></h4></th>
+                                                    <th style="text-align: center"><h4><b>Lugar</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Puesto</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Estado</b></h4></th>
+
                                                 </tr>
                                                 <tr>
                                                     <td align="center">1</td>
                                                     <td align="center">12/11/2018</td>
-                                                    <td align="center">Elvis Velasque Espinoza</td>
+                                                    <td align="center">Lima</td>
                                                     <td align="center">Practicante de sistemas</td>                                                    
                                                     <td align="center">Postulación</td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center">2</td>
                                                     <td align="center">12/11/2018</td>
-                                                    <td align="center">Juan Valmar Gabiotas</td>
+                                                    <td align="center">Lima</td>
                                                     <td align="center">Practicante de sistemas</td> 
                                                     <td align="center">Examen Psicológico</td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center">3</td>
                                                     <td align="center">12/11/2018</td>
-                                                    <td align="center">Rodrick Juarez Bellotas</td>
+                                                    <td align="center">Lima</td>
                                                     <td align="center">Practicante de sistemas</td> 
                                                     <td align="center">Examen Psicológico</td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center">4</td>
                                                     <td align="center">12/11/2018</td>
-                                                    <td align="center">Lucas Sheperd Huerta</td>
+                                                    <td align="center">Lima</td>
                                                     <td align="center">Practicante de sistemas</td> 
                                                     <td align="center">Postulación</td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center">5</td>
                                                     <td align="center">12/11/2018</td>
-                                                    <td align="center">Ricardo Gomez Toso</td>
+                                                    <td align="center">Lima</td>
                                                     <td align="center">Practicante de sistemas</td> 
                                                     <td align="center">Postulación</td>
                                                 </tr>

@@ -108,8 +108,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <nav>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="active"><a href="index.php">Inicio</a></li>
-                                <li><a href="jobs.php">Puestos laborales</a></li>
-                                <li><a href="index.php">Candidatos</a></li>
+                                <li><a href="jobs.php">Nuevo Puesto</a></li>
+                                <li><a href="puestos_laborales.php">Puestos laborales</a></li>
+                                <li><a href="candidatos.php">Candidatos</a></li>
                                 <li><a href="../../logout.php" >Cerrar sesión</a></li>
 
                             </ul>
