@@ -61,81 +61,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <br><br><br><br><br>
                                     <br><br>
                                     <div class="container">
-                                        <div class="col-md-9">
+                                        <div class="col-md-12">
                                             <div class="table-responsive">
                                                 <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
                                                     <tr style="background-color: rgba(211,211,211, .6)">
                                                         <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>EXAMEN</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>POSTULANTE</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>PUNTUACIÓN</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>SELECCIONAR</b></h4></th>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">1</td>
                                                         <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Sistemas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                            <p><b><a href="rankByJob.php">Melissa Calero Ortiz</a></b></p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center">15</td>
+                                                        <td align="center"><input type="checkbox" ></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">2</td>
                                                         <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Contabilidad</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                            <p><b><a href="rankByJob.php">Javier Ormeño Vera</a></b></p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center">13</td>
+                                                        <td align="center"><input type="checkbox"></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">3</td>
                                                         <td>
-                                                            <p><b><a href="rankByJob.php">Teleoperadora</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                            <p><b><a href="rankByJob.php">Elvis Velasque Espinoza</a></b></p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center">17</td>
+                                                        <td align="center"><input type="checkbox"></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">4</td>
                                                         <td>
-                                                            <p><b><a href="rankByJob.php">Asistente de ventas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                            <p><b><a href="rankByJob.php">Diego Trujillo Peceros</a></b></p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center">08</td>
+                                                        <td align="center"><input type="checkbox"></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">5</td>
                                                         <td>
-                                                            <p><b><a href="rankByJob.php">Soporte Técnico</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
+                                                            <p><b><a href="rankByJob.php">Yajaira Huerta Espinza</a></b></p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center">16</td>
+                                                        <td align="center"><input type="checkbox"></td>
                                                     </tr>
 
                                                 </table>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-offset-1 col-md-2">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                    <tr style="background-color: rgba(211,211,211, .6)">
-                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b></b></h4></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Abierto</td>
-                                                        <td>20</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Pausado</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Cerrado</td>
-                                                        <td>5</td>
-                                                    </tr>
-                                                </table>
+                                                <center>
+                                                    <button type="button" class="btn btn-success btn-lg" onclick="goToIndex()">GUARDAR</button>
+                                                </center>
                                             </div>
                                         </div>
                                     </div>
+                                    <br><br><br>
+                                    <br><br><br>
                                     <br><br><br>
                                 </div>
 							</div>
@@ -198,9 +182,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </footer>
   </body>
 </html>
-<script type="application/javascript">
-    function goToExam () {
 
-        windows.location =  "http://localhost/Portal_trabajo/user/jobprovider/exam.php";
+<script type="application/javascript">
+    function goToIndex() {
+        history.go(-1);
     }
 </script>

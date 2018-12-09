@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <p><b><a href="rankByJob.php">Practicante de Sistemas</a></b></p>
                                                             <p style="margin-top: : -12px">Descipción del puesto</p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center"><button type="button" class="btn btn-danger">Examen</button></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">2</td>
@@ -83,33 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <p><b><a href="rankByJob.php">Practicante de Contabilidad</a></b></p>
                                                             <p style="margin-top: : -12px">Descipción del puesto</p>
                                                         </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                        <td align="center"><button type="button" class="btn btn-danger">Examen</button></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td align="center">3</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Teleoperadora</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">4</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Asistente de ventas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">5</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Soporte Técnico</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-
                                                 </table>
                                             </div>
                                         </div>
@@ -198,9 +173,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </footer>
   </body>
 </html>
-<script type="application/javascript">
-    function goToExam () {
-
-        windows.location =  "http://localhost/Portal_trabajo/user/jobprovider/exam.php";
-    }
-</script>
