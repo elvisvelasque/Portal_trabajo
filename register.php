@@ -43,8 +43,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<input type="password" id="name" name="pass" placeholder="" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
 					</div>
 					<div class="form-control"> 
-						<label class="header">Subir CV <span>:</span></label>
-						<input type="text" id="name" name="pass" placeholder="" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+						<label class="header">Subir CV <span>: </span></label>
+					    <input type="file" name="fileToUpload" id="fileToUpload">
 					</div>
 				</div>			
 			</div>

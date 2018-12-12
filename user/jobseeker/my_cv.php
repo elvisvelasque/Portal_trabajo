@@ -68,38 +68,38 @@ width:30%;
                                 <div class="container" style="color: #fff;">
                                     <br><br><br><br><br><br>
                                     <div class="container">
-                                        <div class="col-md-3">
-                                            <img src="images/user.png" alt="" style="width: 100%">
+                                        <div class="col-md-3" onclick="$('#filePhoto').click()">
+                                            <img id="imagePreview" src="images/user.png" style="">
+                                            <input type="file" name="userprofile_picture" value="images/uploadImage.jpg" id="filePhoto" accept="image/*"/>
                                         </div>
                                         <div class="col-lg-9">
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Datos personales</h3>
                                                 <div class="col-md-12">
                                                     <p>Nombres y apellidos</p>
-                                                    <p style="margin-top: -12px"><b>Melissa Calero Ortiz</b></p>
+                                                    <input type="text" class="input-block-level span9" name="nombres" id="nombres"   placeholder="Nombres"  required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>DNI</p>
-                                                    <p style="margin-top: -12px"><b>76773668</b></p>
+                                                    <input type="text" class="input-block-level span9" name="dni" id="dni"   placeholder="DNI"  required>
                                                     <p>Dirección</p>
-                                                    <p style="margin-top: -12px"><b>Jirón Ica 329</b></p>
+                                                    <input type="text" class="input-block-level span9" name="direccion" id="direccion"   placeholder="Dirección"  required>
                                                     <p>Distrito</p>
-                                                    <p style="margin-top: -12px"><b>San Juan de Lurigancho</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Distrito" id="Distrito"   placeholder="Distrito"  required>
                                                     <p>Correo Electrónico</p>
                                                     <p style="margin-top: -12px"><b>melissacaleroortiz@gmail.com</b></p>
                                                     <p>Celular/Teléfono</p>
-                                                    <p style="margin-top: -12px"><b>0122775548</b></p>
-
+                                                    <input type="text" class="input-block-level span9" name="Telefono" id="Telefono"   placeholder="Teléfono"  required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>Edad</p>
-                                                    <p style="margin-top: -12px"><b>23</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Edad" id="Edad"   placeholder="Edad"  required>
                                                     <p>Género</p>
-                                                    <p style="margin-top: -12px"><b>Femenino</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Genero" id="Genero"   placeholder="Género"  required>
                                                     <p>Estado Civil</p>
-                                                    <p style="margin-top: -12px"><b>Sotera</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Estado" id="Estado"   placeholder="Estado"  required>
                                                     <p>Lugar de Nacimiento</p>
-                                                    <p style="margin-top: -12px"><b>Lima</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Lugar" id="Lugar"   placeholder="Lugar"  required>
                                                 </div>
                                             </div>
                                             <br>
@@ -107,29 +107,30 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Estudios</h3>
                                                 <div class="col-md-12">
                                                     <p>Institución</p>
-                                                    <p style="margin-top: -12px"><b>Universidad César Vallejo</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Institucion" id="Institucion"   placeholder="Institución educativa"  required>
                                                     <p>Carrera</p>
-                                                    <p style="margin-top: -12px"><b>Ingeniería de Sistemas</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Carrera" id="Carrera"   placeholder="Carrera"  required>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Aptitudes</h3>
                                                 <div class="col-md-12">
-                                                    <p><b>Liderazgo</b></p>
-                                                    <p style="margin-top: -12px"><b>Compañerismo</b></p>
-                                                    <p style="margin-top: -12px"><b>Trabajo en equipo</b></p>
-                                                    <p style="margin-top: -12px"><b>Comunicación</b></p>
+                                                <input type="checkbox" name="vehicle1" value="Bike">Liderazgo<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">Compañerismo<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">Trabajo en equipo<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">Comunicación<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">Trabajo bajo presión<br>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Conocimientos</h3>
                                                 <div class="col-md-12">
-                                                    <p><b>Análisis de sistemas</b></p>
-                                                    <p style="margin-top: -12px"><b>PHP</b></p>
-                                                    <p style="margin-top: -12px"><b>JAVA</b></p>
-                                                    <p style="margin-top: -12px"><b>RUP</b></p>
+                                                <input type="checkbox" name="vehicle1" value="Bike">PHP<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">JAVA<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">RUP<br>
+                                                <input type="checkbox" name="vehicle1" value="Bike">EXCEL<br>
                                                 </div>
                                             </div>
                                             <br>
@@ -137,11 +138,18 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Experiencia Laboral</h3>
                                                 <div class="col-md-12">
                                                     <p>Puesto</p>
-                                                    <p style="margin-top: -12px"><b>Practicante</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Puesto" id="Puesto"   placeholder="Puesto"  required>
                                                     <p>Descripción</p>
-                                                    <p style="margin-top: -12px"><b>Apoyo Soporte</b></p>
+                                                    <input type="text" class="input-block-level span9" name="Descripcion" id="Descripcion"   placeholder="Descripción"  required>
                                                 </div>
                                             </div>
+
+                                            <div class="container-fluid" style="background-color: whitesmoke; color: #000">
+                                                <center>
+                                                <input type="submit" class="btn btn-info"  value="Actualizar"/>
+                                                </center>
+                                            </div>
+                                            
                                             <br>
                                         </div>
                                     </div>
