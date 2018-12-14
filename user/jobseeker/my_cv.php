@@ -1,3 +1,7 @@
+<?php
+ include("../../connection.php");
+ $con = conectar();
+?>
 
 <html>
 <!DOCTYPE html>
@@ -58,6 +62,7 @@ width:30%;
 </head>
 <body>
 
+
 	<div class="banner-top">
 		<div class="slider">
 			<div class="callbacks_container">
@@ -66,10 +71,17 @@ width:30%;
 						<div class="w3layouts-banner-top jarallax">
 							<div class="agileinfo-dot">
                                 <div class="container" style="color: #fff;">
+                                <?php
+                        $query = mysqli_query($con,"select * from postulante where id_postulante = 1")or die(mysql_error());
+                        $row = mysqli_fetch_array($query);
+                        $foto=$row['foto'];
+                        ?>
+                        <form id="actualizar_cv" class="form-signin" method="post">
+
                                     <br><br><br><br><br><br>
                                     <div class="container">
                                         <div class="col-md-3" onclick="$('#filePhoto').click()">
-                                            <img id="imagePreview" src="images/user.png" style="">
+                                            <img id="imagePreview" src="images/<?php echo $row['foto']; ?>" style="">
                                             <input type="file" name="userprofile_picture" value="images/uploadImage.jpg" id="filePhoto" accept="image/*"/>
                                         </div>
                                         <div class="col-lg-9">
@@ -77,29 +89,29 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Datos personales</h3>
                                                 <div class="col-md-12">
                                                     <p>Nombres y apellidos</p>
-                                                    <input type="text" class="input-block-level span9" name="nombres" id="nombres"   placeholder="Nombres"  required>
+                                                    <input type="text" class="input-block-level span9" name="nombre" id="nombre"  value="<?php echo $row['nombre']; ?>"  placeholder="Nombres"  required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>DNI</p>
-                                                    <input type="text" class="input-block-level span9" name="dni" id="dni"   placeholder="DNI"  required>
+                                                    <input type="text" class="input-block-level span9" name="dni" id="dni"   placeholder="DNI" value="<?php echo $row['dni']; ?>" required>
                                                     <p>Dirección</p>
-                                                    <input type="text" class="input-block-level span9" name="direccion" id="direccion"   placeholder="Dirección"  required>
+                                                    <input type="text" class="input-block-level span9" name="direccion" id="direccion"   placeholder="Dirección" value="<?php echo $row['direccion']; ?>" required>
                                                     <p>Distrito</p>
-                                                    <input type="text" class="input-block-level span9" name="Distrito" id="Distrito"   placeholder="Distrito"  required>
+                                                    <input type="text" class="input-block-level span9" name="Distrito" id="Distrito"   placeholder="Distrito"  value="<?php echo $row['distrito']; ?>" required>
                                                     <p>Correo Electrónico</p>
-                                                    <p style="margin-top: -12px"><b>melissacaleroortiz@gmail.com</b></p>
+                                                    <p style="margin-top: -12px"><b><?php echo $row['email']; ?></b></p>
                                                     <p>Celular/Teléfono</p>
-                                                    <input type="text" class="input-block-level span9" name="Telefono" id="Telefono"   placeholder="Teléfono"  required>
+                                                    <input type="text" class="input-block-level span9" name="Telefono" id="Telefono"   placeholder="Teléfono" value="<?php echo $row['telefono']; ?>"  required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>Edad</p>
-                                                    <input type="text" class="input-block-level span9" name="Edad" id="Edad"   placeholder="Edad"  required>
+                                                    <input type="text" class="input-block-level span9" name="Edad" id="Edad"   placeholder="Edad" value="<?php echo $row['edad']; ?>" required>
                                                     <p>Género</p>
-                                                    <input type="text" class="input-block-level span9" name="Genero" id="Genero"   placeholder="Género"  required>
+                                                    <input type="text" class="input-block-level span9" name="Genero" id="Genero"   placeholder="Género" value="<?php echo $row['sexo']; ?>" required>
                                                     <p>Estado Civil</p>
-                                                    <input type="text" class="input-block-level span9" name="Estado" id="Estado"   placeholder="Estado"  required>
+                                                    <input type="text" class="input-block-level span9" name="Estado" id="Estado"   placeholder="Estado" value="<?php echo $row['estado_civil']; ?>" required>
                                                     <p>Lugar de Nacimiento</p>
-                                                    <input type="text" class="input-block-level span9" name="Lugar" id="Lugar"   placeholder="Lugar"  required>
+                                                    <input type="text" class="input-block-level span9" name="Lugar" id="Lugar"   placeholder="Lugar" value="<?php echo $row['lugar_nac']; ?>" required>
                                                 </div>
                                             </div>
                                             <br>
@@ -107,9 +119,9 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Estudios</h3>
                                                 <div class="col-md-12">
                                                     <p>Institución</p>
-                                                    <input type="text" class="input-block-level span9" name="Institucion" id="Institucion"   placeholder="Institución educativa"  required>
+                                                    <input type="text" class="input-block-level span9" name="Institucion" id="Institucion" value="<?php echo $row['institucion']; ?>"  placeholder="Institución educativa"  required>
                                                     <p>Carrera</p>
-                                                    <input type="text" class="input-block-level span9" name="Carrera" id="Carrera"   placeholder="Carrera"  required>
+                                                    <input type="text" class="input-block-level span9" name="Carrera" id="Carrera" value="<?php echo $row['carrera']; ?>"  placeholder="Carrera"  required>
                                                 </div>
                                             </div>
                                             <br>
@@ -138,9 +150,9 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Experiencia Laboral</h3>
                                                 <div class="col-md-12">
                                                     <p>Puesto</p>
-                                                    <input type="text" class="input-block-level span9" name="Puesto" id="Puesto"   placeholder="Puesto"  required>
+                                                    <input type="text" class="input-block-level span9" name="Puesto" id="Puesto"   placeholder="Puesto" value="<?php echo $row['puesto']; ?>" required>
                                                     <p>Descripción</p>
-                                                    <input type="text" class="input-block-level span9" name="Descripcion" id="Descripcion"   placeholder="Descripción"  required>
+                                                    <input type="text" class="input-block-level span9" name="Descripcion" id="Descripcion"   placeholder="Descripcion" value="<?php echo $row['Descripcion']; ?>" required>
                                                 </div>
                                             </div>
 
@@ -153,6 +165,26 @@ width:30%;
                                             <br>
                                         </div>
                                     </div>
+                        </form>         
+
+                        <script>
+                                    jQuery(document).ready(function($){
+                                        $("#actualizar_cv").submit(function(e){
+                                            e.preventDefault();
+                                            var _this = $(e.target);
+                                            var formData = $(this).serialize();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "actualizar_cv.php",
+                                                data: formData,
+                                                success: function(html){
+                                                    window.location = 'my_cv.php';
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script>
+
                                 </div>
                             </div>
 						</div>

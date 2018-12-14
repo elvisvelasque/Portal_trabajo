@@ -16,9 +16,10 @@ CREATE TABLE `postulante` (
   `lugar_nac` varchar(110) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
   `carrera` varchar(8) DEFAULT NULL,
-  `foto` varchar(50) DEFAULT NULL,
+  `foto` varchar(50) DEFAULT 'user_png',
   `puesto` varchar(50) DEFAULT NULL,
   `conocimientos` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
   `contraseña` varchar(50) NOT NULL,
   `cv` varchar(50) NOT NULL
 
