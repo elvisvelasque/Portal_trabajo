@@ -40,7 +40,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					  <div class="form-control"> 
 						<label class="header">Contraseña <span>:</span></label>
-						<input type="password" id="name" name="pass" placeholder="" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+						<input type="password" id="pass" name="pass" placeholder="" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"" required="" >
+						<!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-->
 					</div>
 					<div class="form-control"> 
 						<label class="header">Subir CV <span>: </span></label>
@@ -67,21 +68,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </html>
 <!--target="_blank"-->
 <?php
-include'connection.php';
-
+ include('connection.php');
+ $con = conectar();
+?>
+<?php
 if(isset($_POST['submit']))
 {
    $user=$_POST['name'];
    $email=$_POST['email'];
    $pass=$_POST['pass'];
+   $cv=$_POST['fileToUpload'];
 
-   $sql="insert into user(user_name,password,email,type)values('$user','$pass','$email','S')";
-   if($conn->query($sql))
+   $sql="insert into postulante (`nombre`,`contraseña`,`email`,`cv`) values ('$user','$pass','$email','$cv')";
+   $result=mysqli_query($con,$sql);
+
+   if($result)
    {
+
    	    ?>
       <script>
       alert('successfully registered');
-      window.location.href="login.php?success";
+      window.location.href="login.html?success";
              </script>
     <?php
    }
@@ -89,7 +96,11 @@ if(isset($_POST['submit']))
    { ?>
      <script>
       alert('Error while register');
-      window.location.href="register.php?Fail";
+      console.log(<?= json_encode($sql); ?>);
+      console.log(<?= json_encode($con); ?>);
+      console.log(<?= json_encode($result); ?>);
+
+      //window.location.href="register.php?Fail";
      </script>
      <?php
    }

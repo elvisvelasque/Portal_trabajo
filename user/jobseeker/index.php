@@ -72,57 +72,13 @@ width:30%;
 							<div class="agileinfo-dot">
 								<div class="container" style="color: #fff;">
                                     <br><br><br><br><br>
-                                    <h2 align="center"> Historial de postulaciones</h2>
                                     <br><br>
-                                    <div class="container">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                <tr style="background-color: rgba(211,211,211, .6)">
-                                                    <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Fecha</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Lugar</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Puesto</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Estado</b></h4></th>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">1</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante sistemas</td>
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">2</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Teleoperadora</td>
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">3</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Marketing y Diseño</td>
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">4</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Examen Conocimientos</td>
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">5</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Asistente</td>
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-
-                                            </table>
-                                        </div>
-                                    </div>
+                  <div class="block-content collapse in">
+                                <div class="span12" id="studentTableDiv">
+                                <h2 id="noch">LISTA DE TRABAJOS</h2>
+                                    <?php include('postulaciones_table.php'); ?>
+                                </div>
+                            </div>
                                     <br><br><br>
 								</div>
 							</div>

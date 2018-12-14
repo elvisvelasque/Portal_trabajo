@@ -1,3 +1,10 @@
+<?php
+
+    include('connection.php');
+    session_start();
+    $con = conectar();
+ ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,7 +52,7 @@ u:hover {
    
 <div class="content-w3ls">
 	<div class="form-w3ls">
-		<form action="user/jobprovider/index.php" method="post" id="form">
+		<form action="login.php" method="post" id="form">
 			<div class="content-wthree1">
                 <div class="form-control">
                     <label class="header">Correo electrónico<span>:</span></label>
@@ -53,11 +60,11 @@ u:hover {
                 </div>
                 <div class="form-control">
                     <label class="header">Contraseña <span>:</span></label>
-                    <input type="password" id="name" name="pass" placeholder="" title="Por favor ingresa tu contraseña" required="">
+                    <input type="password" id="pass" name="pass" placeholder="" title="Por favor ingresa tu contraseña" required="">
                 </div>
                 <div class="content-wthree4">
                     <div class="form-control">
-                        <input type="submit" class="register" value="INGRESAR" name="login">
+                        <input type="submit" class="register" name="login">
                     </div>
                 </div>
             </div>
@@ -78,13 +85,58 @@ u:hover {
 
 </body>
 </html>
-<script type="application/javascript">
-    function select() {
-        console.log(document.getElementById("rol").value);
-        if(document.getElementById("rol").value === 1){
+
+ <script>
+      //window.location.href="user/jobseeker/index.php?success";
+       if(document.getElementById("rol").value === 1){
             document.getElementById("form").action = "user/jobprovider/index.php";
         }
-        else
+        else{
             document.getElementById("form").action = "user/jobseeker/index.php";
+    
+        }
+
+        </script>
+
+
+
+ <?php
+
+if(isset($_POST['submit']))
+{
+    $username = $_POST['email'];
+    $password = $_POST['pass'];
+
+    $sql="SELECT * FROM postulante WHERE email='$username' and contraseña='$password'";
+    $result=mysqli_query($con,$sql);
+    $count=mysqli_num_rows($result);
+
+ ?>
+ <script>
+      console.log(<?= json_encode($sql); ?>);
+
+
+ </script>
+
+    <?php
+
+
+
+    if($count > 0){
+        echo 'true';
     }
-</script>
+    else{
+            echo 'false';
+             
+    }
+}
+
+    ?>
+
+
+      
+
+
+
+
+     
