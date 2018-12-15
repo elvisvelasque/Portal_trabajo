@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6acdb278-60a7-4e9e-af39-dab58db72f19" name="Default" comment="db">
-      <change afterPath="$PROJECT_DIR$/user/jobprovider/createExam.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/jobprovider/updateStateSeeker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobprovider/exam.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobprovider/exam.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobprovider/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobprovider/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobprovider/puestos_laborales.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobprovider/puestos_laborales.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobprovider/rankByJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobprovider/rankByJob.php" afterDir="false" />
-    </list>
+    <list default="true" id="6acdb278-60a7-4e9e-af39-dab58db72f19" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exam.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exam.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/jobprovider/exam.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="340">
               <caret line="80" column="82" lean-forward="true" selection-start-line="80" selection-start-column="82" selection-end-line="80" selection-end-column="82" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
@@ -87,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rankByJob.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rankByJob.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user/jobprovider/rankByJob.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1122">
-              <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+            <state relative-caret-position="374">
+              <caret line="94" column="61" lean-forward="true" selection-start-line="94" selection-start-column="61" selection-end-line="94" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -165,9 +157,9 @@
         <option value="$PROJECT_DIR$/user/jobprovider/index.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/createExam.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/puestos_laborales.php" />
-        <option value="$PROJECT_DIR$/user/jobprovider/rankByJob.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/updateStateSeeker.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/exam.php" />
+        <option value="$PROJECT_DIR$/user/jobprovider/rankByJob.php" />
       </list>
     </option>
   </component>
@@ -254,7 +246,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebTaylor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -294,7 +286,7 @@
       <workItem from="1543731419366" duration="384000" />
       <workItem from="1543772621598" duration="5338000" />
       <workItem from="1544370439517" duration="6297000" />
-      <workItem from="1544796315182" duration="27003000" />
+      <workItem from="1544796315182" duration="27321000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1543121012144</created>
@@ -373,11 +365,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544836077320</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="changes">
+      <created>1544845629524</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1544845629524</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52996000" />
+    <option name="totallyTimeSpent" value="53314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -439,7 +438,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/elvisvelasque/Portal_trabajo&#10;&#10;# Conflicts:&#10;#&#9;connection.php" />
     <MESSAGE value="commit" />
     <MESSAGE value="db" />
-    <option name="LAST_COMMIT_MESSAGE" value="db" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/user/jobprovider/candidatos.php">
@@ -777,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobprovider/rankByJob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/jobprovider/puestos_laborales.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1272">
@@ -804,13 +797,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user/jobprovider/exam.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
+        <state relative-caret-position="340">
           <caret line="80" column="82" lean-forward="true" selection-start-line="80" selection-start-column="82" selection-end-line="80" selection-end-column="82" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobprovider/rankByJob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="94" column="61" lean-forward="true" selection-start-line="94" selection-start-column="61" selection-end-line="94" selection-end-column="61" />
         </state>
       </provider>
     </entry>
