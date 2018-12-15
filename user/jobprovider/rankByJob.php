@@ -48,8 +48,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+    <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
 </head>
-<?php echo "<h1>".$_GET["id"]."</h1>" ?>
+<?php $id = $_GET["id"];
+
+    include("../../connection.php");
+$con=conectar();?>
 <body>
 	<div class="banner-top">
 		<div class="slider">
@@ -71,51 +77,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <th style="text-align: center"><h4><b>PUNTUACIÓN</b></h4></th>
                                                         <th style="text-align: center"><h4><b>SELECCIONAR</b></h4></th>
                                                     </tr>
-                                                    <tr>
-                                                        <td align="center">1</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Melissa Calero Ortiz</a></b></p>
-                                                        </td>
-                                                        <td align="center">15</td>
-                                                        <td align="center"><input type="checkbox" ></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Javier Ormeño Vera</a></b></p>
-                                                        </td>
-                                                        <td align="center">13</td>
-                                                        <td align="center"><input type="checkbox"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">3</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Elvis Velasque Espinoza</a></b></p>
-                                                        </td>
-                                                        <td align="center">17</td>
-                                                        <td align="center"><input type="checkbox"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">4</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Diego Trujillo Peceros</a></b></p>
-                                                        </td>
-                                                        <td align="center">08</td>
-                                                        <td align="center"><input type="checkbox"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">5</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Yajaira Huerta Espinza</a></b></p>
-                                                        </td>
-                                                        <td align="center">16</td>
-                                                        <td align="center"><input type="checkbox"></td>
-                                                    </tr>
 
+                                                    <tbody>
+                                                    <?php
+                                                    $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion, postulante.nombre, postulante_empleo.seleccionado FROM postulante_empleo 
+                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.id_empleo = $id";
+                                                    $stmtJobs = mysqli_query($con,$queryJobs);
+                                                    $i = 0;
+                                                    while($row = mysqli_fetch_array($stmtJobs)) {
+                                                        $i++;
+                                                        ?>
+                                                        <tr>
+                                                            <td align="center"><?php echo $i ?></td>
+                                                            <td align="center"><?php echo $row['nombre'];?></td>
+                                                            <td align="center"><?php echo $row['calificacion'];?></td>
+                                                            <td align="center"><input type="checkbox" <?php if($row['seleccionado'] == 1){echo "checked";}else {echo "";}?> onchange="changeState(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    </tbody>
                                                 </table>
-                                                <center>
-                                                    <button type="button" class="btn btn-success btn-lg" onclick="goToIndex()">GUARDAR</button>
-                                                </center>
                                             </div>
                                         </div>
                                     </div>
@@ -185,7 +167,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </html>
 
 <script type="application/javascript">
-    function goToIndex() {
-        history.go(-1);
+    function changeState(id,postulante, value) {
+      var parametros = {
+          "id" : id,
+          "state": (value) ? 1 : 0
+      };      $.ajax({
+          data:  parametros,
+          url:   'updateStateSeeker.php',
+          type:  'post',
+          success:  function (response) {
+              console.log(response)
+              $.jGrowl("El estado del postulante \"" + postulante + "\" fue actualizado con éxito", { header: 'Actualizado' });
+              setTimeout(location.reload.bind(location), 1500);
+          }
+      });
     }
 </script>

@@ -80,13 +80,12 @@ $con=conectar();
 								<div class="container" style="color: #fff;">
                                     <br><br><br><br><br>
 <div align="Right">
-  <br><br><br>
-            <div ="col-sm-7">
+            <!--<div ="col-sm-7">
                             <input type="text" class="form-control" placeholder="Buscar" style="width: auto">
                         </div>
                         <div class="col-sm-5" style="align-items: left">
                             <button type="button" class="btn btn-info">Buscar</button>
-                        </div>
+                        </div> -->
         </div>                                    <br><br>
                                     <div class="container">
                                         <div class="table-responsive">

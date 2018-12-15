@@ -25,6 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+    <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -36,6 +39,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <style>
         a{
             color: black;
+        }
+        [type="checkbox"]
+        {
+            vertical-align:middle;
         }
     </style>
 <!-- flexslider -->
@@ -49,6 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<?php $type = $_GET["type"];
+      $id = $_GET["id"];?>
 <body>
 	<div class="banner-top">
 		<div class="slider">
@@ -60,57 +69,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="container" style="color: #fff;">
                                     <br><br><br><br><br>
                                     <br><br>
-                                    <div class="container">
-                                        <div class="col-md-9">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                    <tr style="background-color: rgba(211,211,211, .6)">
-                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>EXAMEN</b></h4></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">1</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Sistemas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Contabilidad</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger">Examen</button></td>
-                                                    </tr>
-                                                </table>
+                                    <form enctype="multipart/form-data" id="formuploadajax2" method="post">
+                                        <div class="container" align="center">
+                                            <input type="text" name="count" id="count" style="display: none">
+                                            <input type="text" name="type" id="type" value="<?php echo $type?>" style="display: none">
+                                            <input type="text" name="id" id="id" value="<?php echo $id?>" style="display: none">
+
+                                            <h1><?php if($type == 1){
+                                                        echo "EXAMEN DE CONOCIMIENTOS";
+                                                      }else{
+                                                        echo "EXAMEN PSICOLÓGICO";
+                                                      }
+                                                ?></h1>
+                                            <div class="col-lg-6 col-lg-offset-3" id="preguntas" align="center">
+                                                <button type="button" class="btn btn-success" onclick="createQuestion()">Agregar Pregunta</button>
                                             </div>
+
                                         </div>
-                                        <div class="col-md-offset-1 col-md-2">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                    <tr style="background-color: rgba(211,211,211, .6)">
-                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b></b></h4></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Abierto</td>
-                                                        <td>20</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Pausado</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">Cerrado</td>
-                                                        <td>5</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+                                        <div class="container" align="center">
+                                            <br>
+                                            <button type="submit" class="btn btn-danger">Guardar</button>
                                         </div>
-                                    </div>
+                                    </form>
                                     <br><br><br>
                                 </div>
 							</div>
@@ -173,3 +153,110 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </footer>
   </body>
 </html>
+
+<script>
+    var contador = 0;
+    document.getElementById("count").value = contador;
+    function createQuestion() {
+        contador ++;
+        document.getElementById("count").value = contador;
+        var newElem0 = document.createElement("BR");
+        var newElem = document.createElement("BR");
+        var newElem1 = document.createElement("BR");
+        var newElem2 = document.createElement("BR");
+        var newElem3 = document.createElement("BR");
+        var label = document.createElement("LABEL");
+        label.style.fontSize = "25"
+        var labelt = document.createTextNode("Pregunta "+contador+": ");
+        label.appendChild(labelt);
+        var container = document.getElementById("preguntas")
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = "input"+contador;
+        input.id = "input"+contador;
+        input.className = "form-control";
+        input.required = true;
+        container.appendChild(newElem0);
+        container.appendChild(label);
+        container.appendChild(input);
+        container.appendChild(newElem);
+
+        var option1 = document.createElement("LABEL");
+        var t1 = document.createTextNode("Opción 1: ");
+        option1.appendChild(t1);
+        var inputOption1 = document.createElement("input");
+        inputOption1.type = "text";
+        inputOption1.style.color = "black";
+        inputOption1.name = "input"+contador+"o1";
+        inputOption1.id = "input"+contador+"o1";
+        inputOption1.required = true;
+
+        option1.appendChild(inputOption1);
+
+        var option2 = document.createElement("LABEL");
+        var t2 = document.createTextNode("Opción 2: ");
+        option2.appendChild(t2);
+        var inputOption2 = document.createElement("input");
+        inputOption2.type = "text";
+        inputOption2.style.color = "black";
+        inputOption2.name = "input"+contador+"o2";
+        inputOption2.id = "input"+contador+"o2";
+        inputOption2.required = true;
+
+        option2.appendChild(inputOption2);
+
+        var option3 = document.createElement("LABEL");
+        var t3 = document.createTextNode("Opción 3: ");
+        option3.appendChild(t3);
+        var inputOption3 = document.createElement("input");
+        inputOption3.type = "text";
+        inputOption3.style.color = "black";
+        inputOption3.name = "input"+contador+"o3";
+        inputOption3.id = "input"+contador+"o3";
+        inputOption3.required = true;
+
+        option3.appendChild(inputOption3);
+
+        var option4 = document.createElement("LABEL");
+        var t4 = document.createTextNode("Opción 4: ");
+        option4.appendChild(t4);
+        var inputOption4 = document.createElement("input");
+        inputOption4.type = "text";
+        inputOption4.style.color = "black";
+        inputOption4.name = "input"+contador+"o4";
+        inputOption4.id = "input"+contador+"o4";
+        inputOption4.required = true;
+        option4.appendChild(inputOption4);
+        container.appendChild(option1);
+        container.appendChild(newElem1);
+        container.appendChild(option2);
+        container.appendChild(newElem2);
+        container.appendChild(option3);
+        container.appendChild(newElem3);
+        container.appendChild(option4);
+        $(function(){
+            $("#formuploadajax2").on("submit", function(e){
+                e.preventDefault();
+                var f = $(this);
+                var formData = new FormData(document.getElementById("formuploadajax2"));
+                formData.append("dato", "valor");
+                $.ajax({
+                    url: "createExam.php",
+                    type: "post",
+                    dataType: "html",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+                .done(function(res){
+                    console.log(res);
+                    $.jGrowl("Examen creado con éxito", { header: 'Agregado' });
+                    setTimeout(location.reload.bind(location), 2500);
+                });
+            });
+        });
+
+    }
+
+</script>
