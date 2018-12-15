@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6acdb278-60a7-4e9e-af39-dab58db72f19" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobseeker/my_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobseeker/my_cv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,15 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="puestos_laborales.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/jobprovider/puestos_laborales.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="122" column="49" lean-forward="true" selection-start-line="122" selection-start-column="49" selection-end-line="122" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="updateStateJobs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/jobprovider/updateStateJobs.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -56,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jobs_table.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="jobs_table.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user/jobseeker/profile_pictures/jobs_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+            <state relative-caret-position="374">
+              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -99,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_cv.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my_cv.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/jobseeker/my_cv.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
@@ -108,11 +96,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rankByJob.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/jobprovider/rankByJob.php">
+      <file leaf-file-name="jobs.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="66" column="44" lean-forward="true" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+            <state relative-caret-position="584">
+              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jobs_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -132,6 +129,7 @@
       <find>formuploadajax2</find>
       <find>changeState</find>
       <find>trabajos</find>
+      <find>input-block-level</find>
     </findStrings>
     <replaceStrings>
       <replace>rankByJob.php</replace>
@@ -286,7 +284,7 @@
       <workItem from="1543731419366" duration="384000" />
       <workItem from="1543772621598" duration="5338000" />
       <workItem from="1544370439517" duration="6297000" />
-      <workItem from="1544796315182" duration="17677000" />
+      <workItem from="1544796315182" duration="18072000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1543121012144</created>
@@ -351,11 +349,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544834562077</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="commit">
+      <created>1544835861653</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544835861653</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43670000" />
+    <option name="totallyTimeSpent" value="44065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -415,7 +420,8 @@
     <MESSAGE value="Cambios" />
     <MESSAGE value="merge" />
     <MESSAGE value="Merge branch 'master' of https://github.com/elvisvelasque/Portal_trabajo&#10;&#10;# Conflicts:&#10;#&#9;connection.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/elvisvelasque/Portal_trabajo&#10;&#10;# Conflicts:&#10;#&#9;connection.php" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/user/jobprovider/jobs.php">
@@ -623,13 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="162" column="54" selection-start-line="162" selection-start-column="54" selection-end-line="162" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/jobprovider/postjob.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -726,13 +725,6 @@
     <entry file="file://$PROJECT_DIR$/index.php_">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/profile_pictures/jobs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -772,6 +764,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/my_cv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="130" column="50" lean-forward="true" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/user/jobseeker/postulaciones_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -786,10 +799,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/my_cv.php">
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/profile_pictures/jobs_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="130" column="50" lean-forward="true" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
+        <state relative-caret-position="374">
+          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
         </state>
       </provider>
     </entry>
