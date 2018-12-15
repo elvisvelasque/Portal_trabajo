@@ -49,6 +49,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<?php
+    include("../../connection.php");
+    $con=conectar();
+    $queryAbierto = "SELECT COUNT(*) FROM `empleo` WHERE estado = 1";
+    $queryPausado = "SELECT COUNT(*) FROM `empleo` WHERE estado = 2";
+    $queryCerrado = "SELECT COUNT(*) FROM `empleo` WHERE estado = 3";
+    $queryJobs = "SELECT * FROM `empleo`";
+    $stmtAbierto = mysqli_query($con,$queryAbierto);
+    $countAbierto = mysqli_fetch_array($stmtAbierto);
+    $stmtPausado = mysqli_query($con,$queryPausado);
+    $countPausado = mysqli_fetch_array($stmtPausado);
+    $stmtCerrado = mysqli_query($con,$queryCerrado);
+    $countCerrado = mysqli_fetch_array($stmtCerrado);
+?>
 <body>
 	<div class="banner-top">
 		<div class="slider">
@@ -64,52 +78,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="col-md-9">
                                             <div class="table-responsive">
                                                 <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                    <tr style="background-color: rgba(211,211,211, .6)">
-                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
-                                                        <th style="text-align: center"><h4><b>EXAMEN</b></h4></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">1</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Sistemas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">2</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Practicante de Contabilidad</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">3</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Teleoperadora</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">4</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Asistente de ventas</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center">5</td>
-                                                        <td>
-                                                            <p><b><a href="rankByJob.php">Soporte Técnico</a></b></p>
-                                                            <p style="margin-top: : -12px">Descipción del puesto</p>
-                                                        </td>
-                                                        <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
-                                                    </tr>
-
+                                                    <thead>
+                                                        <tr style="background-color: rgba(211,211,211, .6)">
+                                                            <th style="text-align: center"><h4><b>#</b></h4></th>
+                                                            <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
+                                                            <th style="text-align: center"><h4><b>EXAMEN</b></h4></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        $stmtJobs = mysqli_query($con,$queryJobs);
+                                                        while($row = mysqli_fetch_array($stmtJobs)) {
+                                                            $id = $row['id_empleo'];
+                                                            ?>
+                                                            <tr>
+                                                                <td align="center"><?php echo $row['id_empleo'];?></td>
+                                                                <td>
+                                                                    <p><b><a href="rankByJob.php?id=<?php echo $row['id_empleo'];?>"><?php echo $row['titulo']; ?></a></b></p>
+                                                                    <p style="margin-top: : -12px"><?php echo $row['descripcion']; ?></p>
+                                                                </td>
+                                                                <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -117,20 +110,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="table-responsive">
                                                 <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
                                                     <tr style="background-color: rgba(211,211,211, .6)">
+                                                        <th style="text-align: center"><h4><b>Estado</b></h4></th>
                                                         <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                        <th style="text-align: center"><h4><b></b></h4></th>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">Abierto</td>
-                                                        <td>20</td>
+                                                        <td align="center"><?php echo $countAbierto[0] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">Pausado</td>
-                                                        <td>4</td>
+                                                        <td align="center"><?php echo $countPausado[0] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td align="center">Cerrado</td>
-                                                        <td>5</td>
+                                                        <td align="center"><?php echo $countCerrado[0] ?></td>
                                                     </tr>
                                                 </table>
                                             </div>

@@ -44,7 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+    <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
 <style>
 .welcome{
 text-align:center;
@@ -62,6 +64,11 @@ width:30%;
 }
 </style>
 </head>
+<?php
+include("../../connection.php");
+$con=conectar();
+
+?>
 <body>
 	<div class="banner-top">
 		<div class="slider">
@@ -84,50 +91,38 @@ width:30%;
                                     <div class="container">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
+                                                <thead></thead>
                                                 <tr style="background-color: rgba(211,211,211, .6)">
                                                     <th style="text-align: center"><h4><b>#</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Fecha</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Lugar</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Puesto</b></h4></th>
                                                     <th style="text-align: center"><h4><b>Estado</b></h4></th>
-
                                                 </tr>
-                                                <tr>
-                                                    <td align="center">1</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante de sistemas</td>                                                    
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">2</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">3</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante de sistemas</td>
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">4</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">5</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lima</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-
+                                                <tbody>
+                                                <?php
+                                                $queryJobs = "SELECT * FROM `empleo`";
+                                                $stmtJobs = mysqli_query($con,$queryJobs);
+                                                while($row = mysqli_fetch_array($stmtJobs)) {
+                                                    $id = $row['id_empleo'];
+                                                    ?>
+                                                    <tr>
+                                                        <td align="center"><?php echo $row['id_empleo'];?></td>
+                                                        <td align="center">14/12/2018</td>
+                                                        <td align="center"><?php echo $row['ubicacion']; ?></td>
+                                                        <td align="center"><?php echo $row['titulo']; ?></td>
+                                                        <td align="center">
+                                                            <select class="form-control" onchange="changeState(this.value, <?php echo $row['id_empleo']; ?>, <?php echo "'".$row['titulo']."'"; ?>)">
+                                                                <option value="1"<?php if ($row['estado'] == 1) echo ' selected="selected"'; ?>>Activo</option>
+                                                                <option value="2"<?php if ($row['estado'] == 2) echo ' selected="selected"'; ?>>Pausado</option>
+                                                                <option value="3"<?php if ($row['estado'] == 3) echo ' selected="selected"'; ?>>Cerrado</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -209,3 +204,22 @@ width:30%;
     </footer>
 </body>
 </html>
+
+<script>
+    function changeState(value, id, titulo) {
+        var parametros = {
+            "state" : value,
+            "id" : id
+        };
+        $.ajax({
+            data:  parametros,
+            url:   'updateStateJobs.php',
+            type:  'post',
+            success:  function (response) {
+                console.log(response)
+                $.jGrowl("El estado del puesto \"" + titulo + "\" fue actualizado con éxito", { header: 'Actualizado' });
+                setTimeout(location.reload.bind(location), 1500);
+            }
+        });
+    }
+</script>

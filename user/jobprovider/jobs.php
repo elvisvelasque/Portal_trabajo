@@ -25,6 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+    <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -52,45 +56,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li>
 						<div class="w3layouts-banner-top jarallax">
 							<div class="agileinfo-dot">
-                                <div class="container" style="color: #fff;">
+                                <div class="container" style="color: black;">
                                     <br><br><br><br><br>
                                     <br><br>
-                                    <div class="col-lg-offset-2 col-lg-8" style="background-color: rgba(255, 255, 255, .5)">
-                                        <h4>NUEVO EMPLEO</h4>
-                                        <h5>Título del empleo</h5>
-                                        <input type="text" class="form-control">
-                                        <h5>Ubicación</h5>
-                                        <input type="text" class="form-control">
-                                        <h5>Conocimientos necesarios</h5>
-                                        <br><br><br>
-                                        <h5>Descripción</h5>
-                                        <textarea class="form-control" name="" id="" cols="100" rows="10"></textarea>
-                                        <br>
-                                        <button type="button" class="btn btn-info">Guardar</button>
-                                        <button type="button" class="btn btn-info">Cancelar</button>
-                                        <button type="button" class="btn btn-info">Limpiar</button>
-                                    </div>
-                                    <br><br><br>
+                                    <form enctype="multipart/form-data" id="formuploadajax2" method="post">
+                                        <div class="col-lg-offset-2 col-lg-8"  style="background-color: rgba(255, 255, 255, .5); padding-top: 25px;">
+                                            <h4>NUEVO EMPLEO</h4>
+                                            <div class="form-group col-md-12">
+                                                <h5>Título del empleo</h5>
+                                                <input type="text" id="tituloEmpleo" name="tituloEmpleo" class="form-control" required>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <h5>Ubicación</h5>
+                                                <input type="text" id="ubicacion" name="ubicacion" class="form-control" required>
+                                            </div>
+                                            <div class="form-group col-md-6" id="divConocimientos">
+                                                <div class="col-sm-8">
+                                                    <h5>Conocimientos necesarios</h5>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button type="button" class="btn btn-danger" onclick="createInput()">Nuevo</button>
+                                                </div>
+                                                <br><br>
+                                                <input type="text" id="input1" name="input1" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                                    <br><br><br>
+                                            <input type="text" name="count" id="count" style="display: none">
+                                             <div class="form-group col-md-12">
+                                                <h5>Descripción</h5>
+                                                <textarea class="form-control" name="descripcion" id="descripcion" cols="100" rows="10" required></textarea>
+                                             </div>
+                                            <br>
+                                            <div class="col-md-12" align="center">
+                                                <button type="submit"  class="btn btn-info">Guardar</button>
+                                                <button type="button" class="btn btn-info">Cancelar</button>
+                                                <button type="button" class="btn btn-info">Limpiar</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
 							</div>
 						</div>
 					</li>
-					
-					
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
 			<script src="js/responsiveslides.min.js"></script>
-			
-			<!--banner Slider starts Here-->
 		</div>
 	</div>
-	<!-- banner -->
 	<div class="banner">
 		<div class="header">
 			<div class="container">
 				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						<span class="sr-only">Toggle navigation</span>
@@ -102,8 +120,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h1><a href="index.html"> <span>Online</span>Job<span>portal</span></a></h1>
 						</div>
 					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
                         <nav>
                             <ul class="nav navbar-nav navbar-right">
@@ -112,11 +128,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="puestos_laborales.php">Puestos laborales</a></li>
                                 <li><a href="candidatos.php">Candidatos</a></li>
                                 <li><a href="../../logout.php" >Cerrar sesión</a></li>
-
                             </ul>
                         </nav>
                     </div>
-					<!-- /.navbar-collapse -->
 				</nav>
 			</div>
 		</div>
@@ -130,5 +144,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </footer>
+    <script>
+        var contador = 1;
+        document.getElementById("count").value = contador;
+        function createInput() {
+            contador ++;
+            var container = document.getElementById("divConocimientos")
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "input"+contador;
+            input.id = "input"+contador;
+            input.className = "form-control";
+            container.appendChild(input);
+            document.getElementById("count").value = contador;
+        }
+
+
+        function createJob() {
+            var parametros = {
+                "tituloEmpleo" : $( "#tituloEmpleo" ).val(),
+                "ubicacion" : $( "#ubicacion" ).val(),
+                "descripcion" : $( "#descripcion" ).val(),
+            };
+            console.log(parametros);
+            $.ajax({
+                data:  parametros,
+                url:   'addJobs.php',
+                type:  'post',
+                success:  function (response) {
+                    $.jGrowl("Datos actualizados con éxito", { header: 'Actualizado' });
+                    setTimeout(location.reload.bind(location), 1500);
+                }
+            });
+        }
+        $(function(){
+            $("#formuploadajax2").on("submit", function(e){
+                e.preventDefault();
+                var f = $(this);
+                var formData = new FormData(document.getElementById("formuploadajax2"));
+                formData.append("dato", "valor");
+                $.ajax({
+                    url: "addJobs.php",
+                    type: "post",
+                    dataType: "html",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function(res){
+                        console.log(res);
+                        $.jGrowl("Registro agregado con éxito", { header: 'Agregado' });
+                        setTimeout(location.reload.bind(location), 1500);
+                    });
+            });
+        });
+    </script>
   </body>
 </html>
