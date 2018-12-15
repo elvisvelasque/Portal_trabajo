@@ -89,29 +89,32 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Datos personales</h3>
                                                 <div class="col-md-12">
                                                     <p>Nombres y apellidos</p>
-                                                    <input type="text" class="input-block-level span9" name="nombre" id="nombre"  value="<?php echo $row['nombre']; ?>"  placeholder="Nombres"  required>
+                                                    <input type="text" class="form-control span9" name="nombre" id="nombre"  value="<?php echo $row['nombre']; ?>"  placeholder="Nombres"  required>
+                                                    <br><br>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>DNI</p>
-                                                    <input type="text" class="input-block-level span9" name="dni" id="dni"   placeholder="DNI" value="<?php echo $row['dni']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="dni" id="dni"   placeholder="DNI" value="<?php echo $row['dni']; ?>" required>
                                                     <p>Dirección</p>
-                                                    <input type="text" class="input-block-level span9" name="direccion" id="direccion"   placeholder="Dirección" value="<?php echo $row['direccion']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="direccion" id="direccion"   placeholder="Dirección" value="<?php echo $row['direccion']; ?>" required>
                                                     <p>Distrito</p>
-                                                    <input type="text" class="input-block-level span9" name="Distrito" id="Distrito"   placeholder="Distrito"  value="<?php echo $row['distrito']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Distrito" id="Distrito"   placeholder="Distrito"  value="<?php echo $row['distrito']; ?>" required>
                                                     <p>Correo Electrónico</p>
                                                     <p style="margin-top: -12px"><b><?php echo $row['email']; ?></b></p>
                                                     <p>Celular/Teléfono</p>
-                                                    <input type="text" class="input-block-level span9" name="Telefono" id="Telefono"   placeholder="Teléfono" value="<?php echo $row['telefono']; ?>"  required>
+                                                    <input type="text" class="form-control span9" name="Telefono" id="Telefono"   placeholder="Teléfono" value="<?php echo $row['telefono']; ?>"  required>
+                                                    <br><br>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>Edad</p>
-                                                    <input type="text" class="input-block-level span9" name="Edad" id="Edad"   placeholder="Edad" value="<?php echo $row['edad']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Edad" id="Edad"   placeholder="Edad" value="<?php echo $row['edad']; ?>" required>
                                                     <p>Género</p>
-                                                    <input type="text" class="input-block-level span9" name="Genero" id="Genero"   placeholder="Género" value="<?php echo $row['sexo']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Genero" id="Genero"   placeholder="Género" value="<?php echo $row['sexo']; ?>" required>
                                                     <p>Estado Civil</p>
-                                                    <input type="text" class="input-block-level span9" name="Estado" id="Estado"   placeholder="Estado" value="<?php echo $row['estado_civil']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Estado" id="Estado"   placeholder="Estado" value="<?php echo $row['estado_civil']; ?>" required>
                                                     <p>Lugar de Nacimiento</p>
-                                                    <input type="text" class="input-block-level span9" name="Lugar" id="Lugar"   placeholder="Lugar" value="<?php echo $row['lugar_nac']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Lugar" id="Lugar"   placeholder="Lugar" value="<?php echo $row['lugar_nac']; ?>" required>
+                                                    <br><br>
                                                 </div>
                                             </div>
                                             <br>
@@ -119,10 +122,12 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Estudios</h3>
                                                 <div class="col-md-12">
                                                     <p>Institución</p>
-                                                    <input type="text" class="input-block-level span9" name="Institucion" id="Institucion" value="<?php echo $row['institucion']; ?>"  placeholder="Institución educativa"  required>
+                                                    <input type="text" class="form-control span9" name="Institucion" id="Institucion" value="<?php echo $row['institucion']; ?>"  placeholder="Institución educativa"  required>
                                                     <p>Carrera</p>
-                                                    <input type="text" class="input-block-level span9" name="Carrera" id="Carrera" value="<?php echo $row['carrera']; ?>"  placeholder="Carrera"  required>
+                                                    <input type="text" class="form-control span9" name="Carrera" id="Carrera" value="<?php echo $row['carrera']; ?>"  placeholder="Carrera"  required>
                                                 </div>
+                                                <br><br>
+
                                             </div>
                                             <br>
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
@@ -134,6 +139,8 @@ width:30%;
                                                 <input type="checkbox" name="vehicle1" value="Bike">Comunicación<br>
                                                 <input type="checkbox" name="vehicle1" value="Bike">Trabajo bajo presión<br>
                                                 </div>
+                                                <br><br>
+
                                             </div>
                                             <br>
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
@@ -150,9 +157,9 @@ width:30%;
                                                 <h3 style="border-bottom: 2px solid red">Experiencia Laboral</h3>
                                                 <div class="col-md-12">
                                                     <p>Puesto</p>
-                                                    <input type="text" class="input-block-level span9" name="Puesto" id="Puesto"   placeholder="Puesto" value="<?php echo $row['puesto']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Puesto" id="Puesto"   placeholder="Puesto" value="<?php echo $row['puesto']; ?>" required>
                                                     <p>Descripción</p>
-                                                    <input type="text" class="input-block-level span9" name="Descripcion" id="Descripcion"   placeholder="Descripcion" value="<?php echo $row['Descripcion']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Descripcion" id="Descripcion"   placeholder="Descripcion" value="<?php echo $row['Descripcion']; ?>" required>
                                                 </div>
                                             </div>
 

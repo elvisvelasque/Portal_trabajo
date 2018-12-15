@@ -56,11 +56,11 @@ u:hover {
 			<div class="content-wthree1">
                 <div class="form-control">
                     <label class="header">Correo electrónico<span>:</span></label>
-                    <input type="email" id="email" name="email" placeholder="" title="Por favor ingresa tu correo electrónico" required="">
+                    <input type="email" id="email" name="email" title="Por favor ingresa tu correo electrónico" required>
                 </div>
                 <div class="form-control">
                     <label class="header">Contraseña <span>:</span></label>
-                    <input type="password" id="pass" name="pass" placeholder="" title="Por favor ingresa tu contraseña" required="">
+                    <input type="password" id="pass" name="pass" title="Por favor ingresa tu contraseña" required>
                 </div>
                 <div class="content-wthree4">
                     <div class="form-control">
