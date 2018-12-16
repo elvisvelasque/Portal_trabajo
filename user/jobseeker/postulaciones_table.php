@@ -26,7 +26,7 @@
 		</thead>
 		<tbody>
 		<?php
-		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase FROM postulante_empleo a
+		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase,a.rechazado FROM postulante_empleo a
 		inner join empleo b on a.id_empleo=b.id_empleo and a.id_postulante='$id_post' ")or die(mysqli_error());
 		console_log($query2);
 		while($row2= mysqli_fetch_array($query2)){

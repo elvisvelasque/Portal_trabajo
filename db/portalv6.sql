@@ -160,7 +160,6 @@ INSERT INTO `examen` (`id_examen`, `id_empleo`, `estado`, `tipo`) VALUES
 --
 -- Estructura de tabla para la tabla `postulante`
 --
-
 CREATE TABLE `postulante` (
   `id_postulante` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -168,25 +167,40 @@ CREATE TABLE `postulante` (
   `direccion` varchar(70) DEFAULT NULL,
   `distrito` varchar(70) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
-  `telefono` varchar(9) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `contrasena` varchar(30) DEFAULT NULL,
   `edad` varchar(100) DEFAULT NULL,
-  `sexo` varchar(15) DEFAULT NULL,
+  `sexo` varchar(20) DEFAULT NULL,
+  `cv` varchar(100) DEFAULT NULL,
   `estado_civil` varchar(30) DEFAULT NULL,
   `lugar_nac` varchar(110) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
-  `carrera` varchar(8) DEFAULT NULL,
-  `foto` varchar(50) DEFAULT NULL,
+  `carrera` varchar(50) DEFAULT NULL,
+  `foto` varchar(50) DEFAULT 'user.png',
   `puesto` varchar(50) DEFAULT NULL,
-  `conocimientos` varchar(50) DEFAULT NULL
+  `descripcion` varchar(50) DEFAULT NULL,
+  `rol` varchar(2) DEFAULT 'P',
+  `php` int(11) DEFAULT 0,
+  `java` int(11) DEFAULT 0,
+  `python` int(11) DEFAULT 0,
+  `laravel` int(11) DEFAULT 0,
+  `net` int(11) DEFAULT 0,
+  `sql_` int(11) DEFAULT 0,
+  `ofimatica` int(11) DEFAULT 0,
+  `angular` int(11) DEFAULT 0
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `postulante`
 --
 
-INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`, `conocimientos`) VALUES
-(1, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe'),
-(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe');
+INSERT INTO `postulante` (`id_postulante`, `email`,`contrasena`, `rol`) VALUES
+(1, 'admin@gmail.com', 'admin','A');
+
+INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`) VALUES
+(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe'),
+(3, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -343,7 +357,7 @@ ALTER TABLE `examen`
 -- AUTO_INCREMENT de la tabla `postulante`
 --
 ALTER TABLE `postulante`
-  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `postulante_empleo`
