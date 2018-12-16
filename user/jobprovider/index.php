@@ -82,7 +82,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <tr style="background-color: rgba(211,211,211, .6)">
                                                             <th style="text-align: center"><h4><b>#</b></h4></th>
                                                             <th style="text-align: center"><h4><b>ÚLTIMOS PUESTOS LABORALES</b></h4></th>
-                                                            <th style="text-align: center"><h4><b>EXAMEN</b></h4></th>
+                                                            <th style="text-align: center"><h4><b>EXAMEN CON.</b></h4></th>
+                                                            <th style="text-align: center"><h4><b>EXAMEN PSIC.</b></h4></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -97,7 +98,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                     <p><b><a href="rankByJob.php?id=<?php echo $row['id_empleo'];?>"><?php echo $row['titulo']; ?></a></b></p>
                                                                     <p style="margin-top: : -12px"><?php echo $row['descripcion']; ?></p>
                                                                 </td>
-                                                                <td align="center"><button type="button" class="btn btn-danger" onclick="goToExam()">Examen</button></td>
+                                                                <td align="center"><button type="button" class="btn btn-warning" onclick="goToExam(1, <?php echo $row['id_empleo'];?> )">Examen</button></td>
+                                                                <td align="center"><button type="button" class="btn btn-success" onclick="goToExam(2, <?php echo $row['id_empleo'];?>)">Examen</button></td>
                                                             </tr>
                                                             <?php
                                                         }
@@ -192,8 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </body>
 </html>
 <script type="application/javascript">
-    function goToExam () {
-
-        windows.location =  "http://localhost/Portal_trabajo/user/jobprovider/exam.php";
+    function goToExam (type, id) {
+        window.location.href = "http://localhost/Portal_trabajo/user/jobprovider/exam.php?type="+type+"&id="+id;
     }
 </script>
