@@ -251,23 +251,6 @@ width:30%;
 </body>
 </html>
 
-                       <!-- <script>
-                                    jQuery(document).ready(function($){
-                                        $("#actualizar_cv").submit(function(e){
-                                            e.preventDefault();
-                                            var _this = $(e.target);
-                                            var formData = $(this).serialize();
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "actualizar_cv.php",
-                                                data: formData,
-                                                success: function(html){
-                                                    window.location = 'my_cv.php';
-                                                }
-                                            });
-                                        });
-                                    });
-                                </script> -->
                     <?php
 $count=0;
 
@@ -283,6 +266,8 @@ $count=0;
 }
 
 console_log($count);
+
+
  $quer3 = mysqli_query($con,"select case when fase=2 then 'calificacion_conocimientos'
                                          when fase=3 then 'calificacion_psicologico' end tipo, fase from postulante_empleo 
                     where id_empleo='$get_id' and id_postulante='$id_post'")or die(mysql_error());
@@ -315,9 +300,6 @@ console_log($count);
    { ?>
      <script>
       alert('Error while register');
-      console.log(<?= json_encode($sql); ?>);
-      console.log(<?= json_encode($con); ?>);
-      console.log(<?= json_encode($result); ?>);
 
       //window.location.href="register.php?Fail";
      </script>

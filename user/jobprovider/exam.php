@@ -292,7 +292,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 .done(function(res){
                     console.log(res);
                     $.jGrowl("Examen creado con éxito", { header: 'Agregado' });
-                    setTimeout(window.location.href = "http://localhost/Portal_trabajo/user/jobprovider/index.php", 1000);
+                    setTimeout(window.location.href = "http://localhost/Portaltrabajo/user/jobprovider/index.php", 1000);
                 });
         });
     });

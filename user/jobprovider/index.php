@@ -213,6 +213,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </html>
 <script type="application/javascript">
     function goToExam (type, id) {
-        window.location.href = "http://localhost/Portal_trabajo/user/jobprovider/exam.php?type="+type+"&id="+id;
+        window.location.href = "http://localhost/Portaltrabajo/user/jobprovider/exam.php?type="+type+"&id="+id;
     }
 </script>

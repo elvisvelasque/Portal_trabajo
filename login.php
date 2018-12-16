@@ -105,14 +105,12 @@ if(isset($_POST['submit']))
         if($rol == 'A'){
             ?>
             <script>
-                alert('successfully registered');
                 window.location.href="user/jobprovider/index.php";
              </script>
      <?php       
      }else{
          ?>
             <script>
-                alert('successfully registered');
                  window.location.href="user/jobseeker/index.php";
             </script>
      <?php 

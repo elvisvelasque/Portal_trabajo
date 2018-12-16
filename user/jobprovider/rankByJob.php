@@ -129,7 +129,7 @@ $con=conectar();?>
                                                     </tbody>
                                                 </table>
                                                 <div align="center">
-                                                    <button class="btn btn-lg btn-success" onclick="reload()">Guardar</button>
+                                                   <!-- <button class="btn btn-lg btn-success" onclick="reload()">Guardar</button>-->
                                                 </div>
 
                                             </div>
