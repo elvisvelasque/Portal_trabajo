@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2018 a las 05:04:44
+-- Tiempo de generación: 16-12-2018 a las 05:13:35
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -90,42 +90,33 @@ CREATE TABLE `empleo` (
   `ubicacion` varchar(100) NOT NULL,
   `descripcion` varchar(500) NOT NULL,
   `estado` int(11) NOT NULL DEFAULT '1',
-  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `c_php` int(11) NOT NULL,
+  `c_java` int(11) NOT NULL,
+  `c_python` int(11) NOT NULL,
+  `c_ofimatica` int(11) NOT NULL,
+  `c_angular` int(11) NOT NULL,
+  `c_laravel` int(11) NOT NULL,
+  `c_net` int(11) NOT NULL,
+  `c_sql` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `empleo`
 --
 
-INSERT INTO `empleo` (`id_empleo`, `titulo`, `ubicacion`, `descripcion`, `estado`, `fecha`) VALUES
-(1, 'tituloEmpleo', 'ubicacion', 'descripcion', 1, '2018-12-14 19:53:44'),
-(2, 'ass', 'sa', 'sa', 2, '2018-12-14 19:53:44'),
-(3, 'qqqqq', 'qqq', 'qqq', 1, '2018-12-14 19:53:44'),
-(4, '', '', '', 1, '2018-12-14 19:53:44'),
-(5, '', '', '', 1, '2018-12-14 19:53:44'),
-(6, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44'),
-(7, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44'),
-(8, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44'),
-(9, 'asd', 'asd', 'asd', 1, '2018-12-14 19:53:44'),
-(10, 'asd', 'asd', 'asd', 1, '2018-12-14 19:53:44'),
-(11, '', '', '', 1, '2018-12-14 19:53:44'),
-(12, '1231231', '123123', '123123', 1, '2018-12-14 19:53:44'),
-(13, 'r', 'wer', 'wer', 1, '2018-12-14 19:53:44'),
-(14, '1212', '121', '123', 1, '2018-12-14 19:53:44'),
-(15, 'ewr', 'wer', 'wer', 1, '2018-12-14 19:53:44'),
-(16, 'qwe', 'qwe', 'we', 1, '2018-12-14 19:53:44'),
-(17, 'werw', 'wer', 'www', 1, '2018-12-14 19:53:44'),
-(18, '12', '2', '2', 1, '2018-12-14 19:53:44'),
-(19, '12', '2', '2', 1, '2018-12-14 19:53:44'),
-(20, 'weeq', 'qwe', 'qwe', 1, '2018-12-14 19:53:44'),
-(21, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(22, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(23, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(24, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(25, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(26, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44'),
-(27, '', '', '', 1, '2018-12-14 21:35:18'),
-(28, '', '', '', 1, '2018-12-14 21:36:33');
+INSERT INTO `empleo` (`id_empleo`, `titulo`, `ubicacion`, `descripcion`, `estado`, `fecha`, `c_php`, `c_java`, `c_python`, `c_ofimatica`, `c_angular`, `c_laravel`, `c_net`, `c_sql`) VALUES
+(1, 'tituloEmpleo', 'ubicacion', 'descripcion', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'ass', 'sa', 'sa', 2, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'qqqqq', 'qqq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(25, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(26, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
+(29, 'qwe', 'qwe', 'qwe', 1, '2018-12-15 23:06:00', 0, 0, 1, 1, 0, 0, 0, 0),
+(30, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:23', 1, 0, 1, 0, 0, 0, 0, 0),
+(31, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:45', 0, 0, 0, 0, 0, 0, 0, 0),
+(32, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:52', 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -296,7 +287,7 @@ ALTER TABLE `conocimiento_empleo`
 -- AUTO_INCREMENT de la tabla `empleo`
 --
 ALTER TABLE `empleo`
-  MODIFY `id_empleo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_empleo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `examen`
