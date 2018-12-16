@@ -89,11 +89,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <tbody>
                                                         <?php
                                                         $stmtJobs = mysqli_query($con,$queryJobs);
+                                                        $i = 0;
                                                         while($row = mysqli_fetch_array($stmtJobs)) {
+                                                            $i++;
                                                             $id = $row['id_empleo'];
                                                             ?>
                                                             <tr>
-                                                                <td align="center"><?php echo $row['id_empleo'];?></td>
+                                                                <td align="center"><?php echo $i;?></td>
                                                                 <td>
                                                                     <p><b><a href="rankByJob.php?id=<?php echo $row['id_empleo'];?>"><?php echo $row['titulo']; ?></a></b></p>
                                                                     <p style="margin-top: : -12px"><?php echo $row['descripcion']; ?></p>

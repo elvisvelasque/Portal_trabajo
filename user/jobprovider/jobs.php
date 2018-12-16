@@ -28,6 +28,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
     <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
+    <style>
+        [type="checkbox"]
+        {
+            vertical-align:middle;
+        }
+        label{
+            font-weight: normal;
+            margin-bottom: -10px;
+        }
+    </style>
 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -78,7 +88,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <button type="button" class="btn btn-danger" onclick="createInput()">Nuevo</button>
                                                 </div>
                                                 <br><br>
-                                                <input type="text" id="input1" name="input1" class="form-control" required>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="php"  style="word-wrap:break-word">
+                                                            <input id="php" name="php" type="checkbox" value="1" />PHP
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="java"  style="word-wrap:break-word">
+                                                            <input id="java" name="java" type="checkbox" value="1" />Java
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="python"  style="word-wrap:break-word">
+                                                            <input id="python" name="python" type="checkbox" value="1" />Python
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ofimatica"  style="word-wrap:break-word">
+                                                            <input id="ofimatica" name="ofimatica" type="checkbox" value="1" />Ofimática
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="angular">
+                                                            <input id="angular" name="angular" type="checkbox" value="1" />Angular
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="laravel"  style="word-wrap:break-word">
+                                                            <input id="laravel" name="laravel" type="checkbox" value="1" />Laravel
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="net"  style="word-wrap:break-word">
+                                                            <input id="net" name="net" type="checkbox" value="1" />. NET
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="sql"  style="word-wrap:break-word">
+                                                            <input id="sql" name="sql" type="checkbox" value="1" />SQL
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="col-md-6"></div>
                                                     <br><br><br>
@@ -195,7 +248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     .done(function(res){
                         console.log(res);
                         $.jGrowl("Registro agregado con éxito", { header: 'Agregado' });
-                        setTimeout(location.reload.bind(location), 1500);
+                        //setTimeout(location.reload.bind(location), 1500);
                     });
             });
         });
