@@ -170,38 +170,38 @@ CREATE TABLE `postulante` (
   `contrasena` varchar(30) DEFAULT NULL,
   `edad` varchar(100) DEFAULT NULL,
   `sexo` varchar(20) DEFAULT NULL,
+  `cv` varchar(100) DEFAULT NULL,
   `estado_civil` varchar(30) DEFAULT NULL,
   `lugar_nac` varchar(110) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
   `carrera` varchar(50) DEFAULT NULL,
   `foto` varchar(50) DEFAULT 'user.png',
   `puesto` varchar(50) DEFAULT NULL,
-  `conocimientos` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(50) DEFAULT NULL,
   `rol` varchar(2) DEFAULT 'P',
+  `php` int(11) DEFAULT 0,
+  `java` int(11) DEFAULT 0,
+  `python` int(11) DEFAULT 0,
+  `laravel` int(11) DEFAULT 0,
+  `net` int(11) DEFAULT 0,
+  `sql_` int(11) DEFAULT 0,
+  `ofimatica` int(11) DEFAULT 0,
+  `angular` int(11) DEFAULT 0
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `postulante` (`id_postulante`, `email`,`contrasena`, `rol`) VALUES
-(1, 'admin@gmail.com', 'admin','A')
+(1, 'admin@gmail.com', 'admin','A');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `postulante_empleo`
---
-CREATE TABLE `postulante_empleo_2` (
-  `id_postulante` int(11) NOT NULL,
-  `id_empleo` int(11) NOT NULL,
-  `estado` int(11) NOT NULL
-
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
 -- Volcado de datos para la tabla `postulante`
 --
 
-INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`, `conocimientos`) VALUES
-(1, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe'),
-(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe');
+INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`) VALUES
+(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe'),
+(3, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -276,6 +276,10 @@ ALTER TABLE `empleo`
   ADD PRIMARY KEY (`id_empleo`);
 
 --
+-- Indices de la tabla `examen`
+--
+ALTER TABLE `examen`
+  ADD PRIMARY KEY (`id_examen`);
 
 --
 -- Indices de la tabla `postulante`
@@ -333,8 +337,6 @@ ALTER TABLE `postulante_empleo`
 --
 ALTER TABLE `pregunta_examen`
   MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-COMMIT;
-
 --
 -- AUTO_INCREMENT de la tabla `postulante`
 --

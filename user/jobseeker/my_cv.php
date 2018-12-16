@@ -1,6 +1,15 @@
 <?php
  include("../../connection.php");
  $con = conectar();
+ session_start();
+ $id_post =  $_SESSION['id_post'];
+
+ function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+    }
+
 ?>
 
 <html>
@@ -72,7 +81,8 @@ width:30%;
 							<div class="agileinfo-dot">
                                 <div class="container" style="color: #fff;">
                                 <?php
-                        $query = mysqli_query($con,"select * from postulante where id_postulante = 1")or die(mysql_error());
+                        console_log($id_post);
+                        $query = mysqli_query($con,"select * from postulante where id_postulante = '$id_post'")or die(mysql_error());
                         $row = mysqli_fetch_array($query);
                         $foto=$row['foto'];
                         ?>
@@ -82,15 +92,14 @@ width:30%;
                                     <div class="container">
                                         <div class="col-md-3" onclick="$('#filePhoto').click()">
                                             <img id="imagePreview" src="images/<?php echo $row['foto']; ?>" style="">
-                                            <input type="file" name="userprofile_picture" value="images/uploadImage.jpg" id="filePhoto" accept="image/*"/>
+                                            <!--<input type="file" name="userprofile_picture" value="images/uploadImage.jpg" id="filePhoto" accept="image/*"/>-->
                                         </div>
                                         <div class="col-lg-9">
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Datos personales</h3>
                                                 <div class="col-md-12">
                                                     <p>Nombres y apellidos</p>
-                                                    <input type="text" class="form-control span9" name="nombre" id="nombre"  value="<?php echo $row['nombre']; ?>"  placeholder="Nombres"  required>
-                                                    <br><br>
+                                                    <p style="margin-top: -12px"><b><?php echo $row['nombre']; ?></b></p>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <p>DNI</p>
@@ -130,26 +139,20 @@ width:30%;
 
                                             </div>
                                             <br>
-                                            <div class="container-fluid" style="background-color: whitesmoke; color: #000">
-                                                <h3 style="border-bottom: 2px solid red">Aptitudes</h3>
-                                                <div class="col-md-12">
-                                                <input type="checkbox" name="vehicle1" value="Bike">Liderazgo<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">Compañerismo<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">Trabajo en equipo<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">Comunicación<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">Trabajo bajo presión<br>
-                                                </div>
-                                                <br><br>
-
-                                            </div>
+                    
                                             <br>
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Conocimientos</h3>
                                                 <div class="col-md-12">
-                                                <input type="checkbox" name="vehicle1" value="Bike">PHP<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">JAVA<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">RUP<br>
-                                                <input type="checkbox" name="vehicle1" value="Bike">EXCEL<br>
+                                                <input type="checkbox" name="PHP" value="1">PHP<br>
+                                                <input type="checkbox" name="JAVA" value="1">JAVA<br>
+                                                <input type="checkbox" name="PYTHON" value="1">PYTHON<br>
+                                                <input type="checkbox" name="LARAVEL" value="1">LARAVEL<br>
+                                                <input type="checkbox" name="NET" value="1">NET<br>
+                                                <input type="checkbox" name="SQL" value="1">SQL<br>
+                                                <input type="checkbox" name="OFIMATICA" value="1">OFIMATICA<br>
+                                                <input type="checkbox" name="ANGULAR" value="1">ANGULAR<br>
+
                                                 </div>
                                             </div>
                                             <br>
@@ -173,24 +176,6 @@ width:30%;
                                         </div>
                                     </div>
                         </form>         
-
-                        <script>
-                                    jQuery(document).ready(function($){
-                                        $("#actualizar_cv").submit(function(e){
-                                            e.preventDefault();
-                                            var _this = $(e.target);
-                                            var formData = $(this).serialize();
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "actualizar_cv.php",
-                                                data: formData,
-                                                success: function(html){
-                                                    window.location = 'my_cv.php';
-                                                }
-                                            });
-                                        });
-                                    });
-                                </script>
 
                                 </div>
                             </div>
@@ -269,3 +254,96 @@ width:30%;
     </footer>
 </body>
 </html>
+
+                       <!-- <script>
+                                    jQuery(document).ready(function($){
+                                        $("#actualizar_cv").submit(function(e){
+                                            e.preventDefault();
+                                            var _this = $(e.target);
+                                            var formData = $(this).serialize();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "actualizar_cv.php",
+                                                data: formData,
+                                                success: function(html){
+                                                    window.location = 'my_cv.php';
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script> -->
+                    <?php
+
+if(isset($_POST['submit']))
+{
+        $dni = $_POST['dni'];
+        $direccion = $_POST['direccion'];
+        $Distrito = $_POST['Distrito'];
+        //$filePhoto = $_POST['filePhoto'];        foto ='$filePhoto',
+        $Telefono = $_POST['Telefono'];
+        $Edad = $_POST['Edad'];
+        $sexo = $_POST['Genero'];
+        $Estado = $_POST['Estado'];
+        $Lugar = $_POST['Lugar'];
+        $Institucion = $_POST['Institucion'];
+        $Puesto = $_POST['Puesto'];
+        $Carrera = $_POST['Carrera'];
+        $Descripcion = $_POST['Descripcion'];
+
+        $check_value1 = isset($_POST['PHP']) ? 1 : 0;
+        $check_value2 = isset($_POST['PYHTON']) ? 1 : 0;
+        $check_value3 = isset($_POST['JAVA']) ? 1 : 0;
+        $check_value4 = isset($_POST['SQL']) ? 1 : 0;
+        $check_value5 = isset($_POST['LARAVEL']) ? 1 : 0;
+        $check_value6 = isset($_POST['NET']) ? 1 : 0;
+        $check_value7 = isset($_POST['OFIMATICA']) ? 1 : 0;
+        $check_value8 = isset($_POST['ANGULAR']) ? 1 : 0;            
+        
+        $sql="update postulante 
+        set dni ='$dni',sexo ='$sexo',
+        direccion ='$direccion',
+        edad='$Edad',
+        telefono ='$Telefono',
+        distrito ='$Distrito',
+        estado_civil ='$Estado',
+        lugar_nac ='$Lugar',
+        institucion ='$Institucion', 
+        carrera ='$Carrera', 
+        puesto ='$Puesto', 
+        descripcion ='$Descripcion',
+        
+        php='$check_value1',
+        python='$check_value2',
+        java='$check_value3',
+        sql_='$check_value4',
+        laravel='$check_value5',
+        net='$check_value6',
+        ofimatica='$check_value7',
+        angular='$check_value8'
+        where id_postulante = $id_post
+        ";
+
+        console_log($sql);
+
+        $result=mysqli_query($con,$sql)or die(mysqli_error());
+        
+        if($result)  {
+
+        ?>
+      <script>
+      alert('successfully updated');
+      window.location.href="my_cv.php";
+             </script>
+        <?php
+            }
+        else{ ?>
+        <script>
+      alert('Error while updated');
+      console.log(<?= json_encode($sql); ?>);
+      console.log(<?= json_encode($result); ?>);
+      //window.location.href="register.php?Fail";
+     </script>
+     <?php
+   }
+}
+        ?>

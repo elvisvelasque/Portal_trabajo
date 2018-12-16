@@ -76,6 +76,7 @@ u:hover {
 <?php
     include('connection.php');
     $con = conectar();
+
     function console_log( $data ){
     echo '<script>';
     echo 'console.log('. json_encode( $data ) .')';
@@ -93,6 +94,11 @@ if(isset($_POST['submit']))
 
     $sql="SELECT * FROM postulante WHERE email='$username' and contrasena='$password' and rol='$rol'";
     $result=mysqli_query($con,$sql);
+    $row = mysqli_fetch_array($result);
+
+    session_start();
+    $_SESSION['id_post']=$row['id_postulante'];
+    
     $count=mysqli_num_rows($result);
 
     if($count > 0){

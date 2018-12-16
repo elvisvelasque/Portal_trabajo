@@ -35,7 +35,7 @@
 	
 		<td class="empty" width="250">
 		
-		<a data-placement="top" title="Click to View all Details" id="view<?php echo $trabajo_id_id; ?>" href="view_pay.php<?php echo '?id='.$stud_id; ?>" class="btn btn-warning"><i class="icon-search icon-large"></i> Ver </a>
+		<a data-placement="top" title="Click to View all Details" id="view<?php echo $nro; ?>" href="ver_empleo.php<?php echo '?id='.$nro; ?>" class="btn btn-warning"><i class="icon-search icon-large"></i> Ver </a>
 		 <?php } ?>
 
 		</td>
