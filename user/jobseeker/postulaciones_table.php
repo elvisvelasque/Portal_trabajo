@@ -29,7 +29,9 @@
 		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase,a.rechazado FROM postulante_empleo a
 		inner join empleo b on a.id_empleo=b.id_empleo and a.id_postulante='$id_post' ")or die(mysqli_error());
 		console_log($query2);
+		$i = 0;
 		while($row2= mysqli_fetch_array($query2)){
+		    $i++;
 		$nro =$row2['id_empleo'];
 		$fecha = $row2['fecha'];
 		$lugar =$row2['ubicacion'];
@@ -57,7 +59,7 @@
 		?>
         <tr>
 		<!--<tr style=" <?php //if($stud_id==1){ echo 'display:none';}?> "> -->
-		<td align="center"><?php echo $nro; ?></td>
+		<td align="center"><?php echo $i; ?></td>
 		<td align="center"><?php echo $fecha; ?></td>
 		<td align="center"><?php echo $lugar ; ?></td>
 		<td align="center"><?php echo $puesto; ?></td>

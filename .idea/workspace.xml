@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6acdb278-60a7-4e9e-af39-dab58db72f19" name="Default" comment="cambios">
+    <list default="true" id="6acdb278-60a7-4e9e-af39-dab58db72f19" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobprovider/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobprovider/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobseeker/actualizar_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobseeker/actualizar_cv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/jobseeker/my_cv.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobseeker/my_cv.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,20 +23,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_cv.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my_cv.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/jobseeker/my_cv.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="150" column="106" selection-start-line="150" selection-start-column="106" selection-end-line="150" selection-end-column="106" />
-              <caret line="151" column="107" selection-start-line="151" selection-start-column="107" selection-end-line="151" selection-end-column="107" />
-              <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
-              <caret line="153" column="110" selection-start-line="153" selection-start-column="110" selection-end-line="153" selection-end-column="110" />
-              <caret line="154" column="106" selection-start-line="154" selection-start-column="106" selection-end-line="154" selection-end-column="106" />
-              <caret line="155" column="106" selection-start-line="155" selection-start-column="106" selection-end-line="155" selection-end-column="106" />
-              <caret line="156" column="112" selection-start-line="156" selection-start-column="112" selection-end-line="156" selection-end-column="112" />
-              <caret line="157" column="110" selection-start-line="157" selection-start-column="110" selection-end-line="157" selection-end-column="110" />
+            <state relative-caret-position="272">
+              <caret line="149" column="66" lean-forward="true" selection-start-line="149" selection-start-column="66" selection-end-line="149" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/jobseeker/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1938">
+              <caret line="158" column="7" lean-forward="true" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="postulaciones_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/jobseeker/postulaciones_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ver_empleo.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user/jobseeker/ver_empleo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="156" column="39" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,33 +96,6 @@
                 <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#form#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#form#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="candidatos.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/jobprovider/candidatos.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="127" column="65" lean-forward="true" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setInterviewScore.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/jobprovider/setInterviewScore.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -153,6 +146,7 @@
       <find>REND</find>
       <find>test</find>
       <find>changeState</find>
+      <find>datos del</find>
     </findStrings>
     <replaceStrings>
       <replace>rankByJob.php</replace>
@@ -177,7 +171,6 @@
         <option value="$PROJECT_DIR$/user/jobseeker/jobs.php" />
         <option value="$PROJECT_DIR$/user/jobseeker/index.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/updateStateJobs.php" />
-        <option value="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/puestos_laborales.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/addJobs.php" />
         <option value="$PROJECT_DIR$/user/jobprovider/jobs.php" />
@@ -193,6 +186,7 @@
         <option value="$PROJECT_DIR$/user/jobprovider/index.php" />
         <option value="$PROJECT_DIR$/user/jobseeker/actualizar_cv.php" />
         <option value="$PROJECT_DIR$/user/jobseeker/my_cv.php" />
+        <option value="$PROJECT_DIR$/user/jobseeker/postulaciones_table.php" />
       </list>
     </option>
   </component>
@@ -321,7 +315,7 @@
       <workItem from="1544370439517" duration="6297000" />
       <workItem from="1544796315182" duration="27321000" />
       <workItem from="1544846840141" duration="151000" />
-      <workItem from="1544918437509" duration="21987000" />
+      <workItem from="1544918437509" duration="22615000" />
     </task>
     <task id="LOCAL-00001" summary="Commit">
       <created>1543121012144</created>
@@ -463,11 +457,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544950492009</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update cv">
+      <created>1544951866873</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1544951866873</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75452000" />
+    <option name="totallyTimeSpent" value="76080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -534,7 +535,8 @@
     <MESSAGE value="fixed exam" />
     <MESSAGE value="fixed exam 2" />
     <MESSAGE value="cambios" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios" />
+    <MESSAGE value="update cv" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,13 +544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3145">
-          <caret line="185" column="19" selection-start-line="185" selection-start-column="19" selection-end-line="185" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/jobprovider/jobs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
@@ -715,24 +710,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1753">
-          <caret line="158" column="7" lean-forward="true" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/jobseeker/jobs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="584">
           <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/jobseeker/postulaciones_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="34" column="99" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -924,17 +905,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user/jobseeker/my_cv.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="150" column="106" selection-start-line="150" selection-start-column="106" selection-end-line="150" selection-end-column="106" />
-          <caret line="151" column="107" selection-start-line="151" selection-start-column="107" selection-end-line="151" selection-end-column="107" />
-          <caret line="152" column="109" selection-start-line="152" selection-start-column="109" selection-end-line="152" selection-end-column="109" />
-          <caret line="153" column="110" selection-start-line="153" selection-start-column="110" selection-end-line="153" selection-end-column="110" />
-          <caret line="154" column="106" selection-start-line="154" selection-start-column="106" selection-end-line="154" selection-end-column="106" />
-          <caret line="155" column="106" selection-start-line="155" selection-start-column="106" selection-end-line="155" selection-end-column="106" />
-          <caret line="156" column="112" selection-start-line="156" selection-start-column="112" selection-end-line="156" selection-end-column="112" />
-          <caret line="157" column="110" selection-start-line="157" selection-start-column="110" selection-end-line="157" selection-end-column="110" />
+        <state relative-caret-position="272">
+          <caret line="149" column="66" lean-forward="true" selection-start-line="149" selection-start-column="66" selection-end-line="149" selection-end-column="66" />
           <folding>
             <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1938">
+          <caret line="158" column="7" lean-forward="true" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/postulaciones_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/jobseeker/ver_empleo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="156" column="39" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
