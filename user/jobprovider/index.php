@@ -48,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <?php
     include("../../connection.php");
@@ -93,6 +94,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         while($row = mysqli_fetch_array($stmtJobs)) {
                                                             $i++;
                                                             $id = $row['id_empleo'];
+
+                                                            $queryConocimientos = "SELECT COUNT(*) FROM `examen` WHERE `tipo` = 1 and `id_empleo` = $id";
+                                                            $stmtConocimientos = mysqli_query($con,$queryConocimientos);
+                                                            $countConocimientos = mysqli_fetch_array($stmtConocimientos);
+
+                                                            $queryPsicologico = "SELECT COUNT(*) FROM `examen` WHERE `tipo` = 2 and `id_empleo` = $id";
+                                                            $stmtPsicologico = mysqli_query($con,$queryPsicologico);
+                                                            $countPsicologico = mysqli_fetch_array($stmtPsicologico);
+
                                                             ?>
                                                             <tr>
                                                                 <td align="center"><?php echo $i;?></td>
@@ -100,8 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                     <p><b><a href="rankByJob.php?id=<?php echo $row['id_empleo'];?>"><?php echo $row['titulo']; ?></a></b></p>
                                                                     <p style="margin-top: : -12px"><?php echo $row['descripcion']; ?></p>
                                                                 </td>
-                                                                <td align="center"><button type="button" class="btn btn-warning" onclick="goToExam(1, <?php echo $row['id_empleo'];?> )">Examen</button></td>
-                                                                <td align="center"><button type="button" class="btn btn-success" onclick="goToExam(2, <?php echo $row['id_empleo'];?>)">Examen</button></td>
+                                                                <td align="center">
+                                                                    <button style="display: <?php if($countConocimientos[0] > 0) {echo 'none';} else echo 'block'?>" type="button" class="btn btn-warning" onclick="goToExam(1, <?php echo $row['id_empleo'];?> )">Crear</button>
+                                                                    <p style="display: <?php if($countConocimientos[0] > 0) {echo 'block';} else echo 'none'?>" >El examen ya fue creado</p>
+                                                                </td>
+                                                                <td align="center">
+                                                                    <button style="display: <?php if($countPsicologico[0] > 0) {echo 'none';} else echo 'block'?>" type="button" class="btn btn-success" onclick="goToExam(2, <?php echo $row['id_empleo'];?>)">Crear</button>
+                                                                    <p style="display: <?php if($countPsicologico[0] > 0) {echo 'block';} else echo 'none'?>" >El examen ya fue creado</p>
+                                                                </td>
                                                             </tr>
                                                             <?php
                                                         }

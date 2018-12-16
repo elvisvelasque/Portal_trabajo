@@ -51,7 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link href="../../util/jGrowl/jquery.jgrowl.css" rel="stylesheet" media="screen">
+    <script src="../../util/jGrowl/jquery.jgrowl.js"></script>
 <style>
 .welcome{
 text-align:center;
@@ -81,13 +83,14 @@ width:30%;
 							<div class="agileinfo-dot">
                                 <div class="container" style="color: #fff;">
                                 <?php
-                        console_log($id_post);
-                        $query = mysqli_query($con,"select * from postulante where id_postulante = '$id_post'")or die(mysql_error());
-                        $row = mysqli_fetch_array($query);
-                        $foto=$row['foto'];
-                        ?>
-                        <form id="actualizar_cv" class="form-signin" method="post">
+                                    console_log($id_post);
+                                    $query = mysqli_query($con,"select * from postulante where id_postulante = '$id_post'")or die(mysql_error());
+                                    $row = mysqli_fetch_array($query);
+                                    $foto=$row['foto'];
+                                    ?>
+                                    <form enctype="multipart/form-data" id="formuploadajax" method="post">
 
+                                        <input type="text" name="id_post" style="display: none;" value="<?php echo $id_post?>">
                                     <br><br><br><br><br><br>
                                     <div class="container">
                                         <div class="col-md-3" onclick="$('#filePhoto').click()">
@@ -95,6 +98,7 @@ width:30%;
                                             <!--<input type="file" name="userprofile_picture" value="images/uploadImage.jpg" id="filePhoto" accept="image/*"/>-->
                                         </div>
                                         <div class="col-lg-9">
+
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Datos personales</h3>
                                                 <div class="col-md-12">
@@ -144,14 +148,14 @@ width:30%;
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red">Conocimientos</h3>
                                                 <div class="col-md-12">
-                                                <input type="checkbox" name="PHP" value="1">PHP<br>
-                                                <input type="checkbox" name="JAVA" value="1">JAVA<br>
-                                                <input type="checkbox" name="PYTHON" value="1">PYTHON<br>
-                                                <input type="checkbox" name="LARAVEL" value="1">LARAVEL<br>
-                                                <input type="checkbox" name="NET" value="1">NET<br>
-                                                <input type="checkbox" name="SQL" value="1">SQL<br>
-                                                <input type="checkbox" name="OFIMATICA" value="1">OFIMATICA<br>
-                                                <input type="checkbox" name="ANGULAR" value="1">ANGULAR<br>
+                                                <input type="checkbox" name="PHP" value="1" <?php if($row['php']) echo "checked"  ?>  >PHP<br>
+                                                <input type="checkbox" name="JAVA" value="1" <?php if($row['java']) echo "checked" ?>  >JAVA<br>
+                                                <input type="checkbox" name="PYTHON" value="1" <?php if($row['python']) echo "checked" ?>  >PYTHON<br>
+                                                <input type="checkbox" name="LARAVEL" value="1" <?php if($row['laravel']) echo "checked" ?>  >LARAVEL<br>
+                                                <input type="checkbox" name="NET" value="1" <?php if($row['net']) echo "checked" ?>  >.NET<br>
+                                                <input type="checkbox" name="SQL" value="1" <?php if($row['sql_']) echo "checked" ?>  >SQL<br>
+                                                <input type="checkbox" name="OFIMATICA" value="1" <?php if($row['ofimatica']) echo "checked" ?>  >OFIMATICA<br>
+                                                <input type="checkbox" name="ANGULAR" value="1" <?php if($row['angular']) echo "checked" ?>  >ANGULAR<br>
 
                                                 </div>
                                             </div>
@@ -255,95 +259,28 @@ width:30%;
 </body>
 </html>
 
-                       <!-- <script>
-                                    jQuery(document).ready(function($){
-                                        $("#actualizar_cv").submit(function(e){
-                                            e.preventDefault();
-                                            var _this = $(e.target);
-                                            var formData = $(this).serialize();
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "actualizar_cv.php",
-                                                data: formData,
-                                                success: function(html){
-                                                    window.location = 'my_cv.php';
-                                                }
-                                            });
-                                        });
-                                    });
-                                </script> -->
-                    <?php
+    <script type="application/javascript">
+        $(function(){
+            $("#formuploadajax").on("submit", function(e){
+                e.preventDefault();
+                var f = $(this);
+                var formData = new FormData(document.getElementById("formuploadajax"));
+                formData.append("dato", "valor");
+                $.ajax({
+                    url: "actualizar_cv.php",
+                    type: "post",
+                    dataType: "html",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                })
+                    .done(function(res){
+                        console.log(res);
+                        $.jGrowl("CV actualizado con éxito", { header: 'Actualizado' });
+                        //setTimeout(window.location.href = "http://localhost/Portal_trabajo/user/jobprovider/index.php", 1000);
+                    });
+            });
+        });
+    </script>
 
-if(isset($_POST['submit']))
-{
-        $dni = $_POST['dni'];
-        $direccion = $_POST['direccion'];
-        $Distrito = $_POST['Distrito'];
-        //$filePhoto = $_POST['filePhoto'];        foto ='$filePhoto',
-        $Telefono = $_POST['Telefono'];
-        $Edad = $_POST['Edad'];
-        $sexo = $_POST['Genero'];
-        $Estado = $_POST['Estado'];
-        $Lugar = $_POST['Lugar'];
-        $Institucion = $_POST['Institucion'];
-        $Puesto = $_POST['Puesto'];
-        $Carrera = $_POST['Carrera'];
-        $Descripcion = $_POST['Descripcion'];
-
-        $check_value1 = isset($_POST['PHP']) ? 1 : 0;
-        $check_value2 = isset($_POST['PYHTON']) ? 1 : 0;
-        $check_value3 = isset($_POST['JAVA']) ? 1 : 0;
-        $check_value4 = isset($_POST['SQL']) ? 1 : 0;
-        $check_value5 = isset($_POST['LARAVEL']) ? 1 : 0;
-        $check_value6 = isset($_POST['NET']) ? 1 : 0;
-        $check_value7 = isset($_POST['OFIMATICA']) ? 1 : 0;
-        $check_value8 = isset($_POST['ANGULAR']) ? 1 : 0;            
-        
-        $sql="update postulante 
-        set dni ='$dni',sexo ='$sexo',
-        direccion ='$direccion',
-        edad='$Edad',
-        telefono ='$Telefono',
-        distrito ='$Distrito',
-        estado_civil ='$Estado',
-        lugar_nac ='$Lugar',
-        institucion ='$Institucion', 
-        carrera ='$Carrera', 
-        puesto ='$Puesto', 
-        descripcion ='$Descripcion',
-        
-        php='$check_value1',
-        python='$check_value2',
-        java='$check_value3',
-        sql_='$check_value4',
-        laravel='$check_value5',
-        net='$check_value6',
-        ofimatica='$check_value7',
-        angular='$check_value8'
-        where id_postulante = $id_post
-        ";
-
-        console_log($sql);
-
-        $result=mysqli_query($con,$sql)or die(mysqli_error());
-        
-        if($result)  {
-
-        ?>
-      <script>
-      alert('successfully updated');
-      window.location.href="my_cv.php";
-             </script>
-        <?php
-            }
-        else{ ?>
-        <script>
-      alert('Error while updated');
-      console.log(<?= json_encode($sql); ?>);
-      console.log(<?= json_encode($result); ?>);
-      //window.location.href="register.php?Fail";
-     </script>
-     <?php
-   }
-}
-        ?>

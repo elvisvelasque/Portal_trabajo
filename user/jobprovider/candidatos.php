@@ -86,49 +86,53 @@ width:30%;
                                     <div class="container">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-                                                <tr style="background-color: rgba(211,211,211, .6)">
-                                                    <th style="text-align: center"><h4><b>#</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Fecha</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Nombre</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Puesto</b></h4></th>
-                                                    <th style="text-align: center"><h4><b>Estado</b></h4></th>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">1</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Elvis Velasque Espinoza</td>
-                                                    <td align="center">Practicante de sistemas</td>                                                    
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">2</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Juan Valmar Gabiotas</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">3</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Rodrick Juarez Bellotas</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Examen Psicológico</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">4</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Lucas Sheperd Huerta</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Postulación</td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center">5</td>
-                                                    <td align="center">12/11/2018</td>
-                                                    <td align="center">Ricardo Gomez Toso</td>
-                                                    <td align="center">Practicante de sistemas</td> 
-                                                    <td align="center">Postulación</td>
-                                                </tr>
+                                                <thead>
+                                                    <tr style="background-color: rgba(211,211,211, .6)">
+                                                        <th style="text-align: center"><h4><b>#</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>Fecha</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>Nombre</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>Puesto</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>Estado</b></h4></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <?php
+                                                include("../../connection.php");
+                                                $con=conectar();
+                                                $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion_cv,
+                                                                  postulante_empleo.calificacion_conocimientos, postulante_empleo.calificacion_psicologico, postulante_empleo.calificacion_entrevista,
+                                                                  postulante_empleo.fase, postulante.nombre, postulante_empleo.estado_fase, empleo.titulo FROM postulante_empleo 
+                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.rechazado = 0
+                                                                  INNER JOIN empleo ON empleo.id_empleo = postulante_empleo.id_empleo";
+                                                $stmtJobs = mysqli_query($con,$queryJobs);
+                                                $i = 0;
+                                                while($row = mysqli_fetch_array($stmtJobs)) {
+                                                    $i++;
+                                                    ?>
+                                                    <tr>
+                                                        <td align="center"><?php echo $i ?></td>
+                                                        <td align="center"><?php echo  date("d-m-Y") ?></td>
+                                                        <td align="center"><?php echo $row['nombre'];?></td>
+                                                        <td align="center"><?php echo $row['titulo']; ?></td>
+                                                        <td align="center"><?php
+                                                            if($row['fase'] == 1)
+                                                                echo "Evaluación de CV";
+                                                            else{
+                                                                if($row['fase'] == 2)
+                                                                    echo "Evaluación de conocimientos";
+                                                                else {
+                                                                    if ($row['fase'] == 3)
+                                                                        echo "Evaluación psicológica";
+                                                                    else
+                                                                        echo "Entrevista";
+                                                                }
+                                                            }?></td>
 
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
