@@ -74,14 +74,19 @@ $con=conectar();?>
                                                     <tr style="background-color: rgba(211,211,211, .6)">
                                                         <th style="text-align: center"><h4><b>#</b></h4></th>
                                                         <th style="text-align: center"><h4><b>POSTULANTE</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>FASE</b></h4></th>
                                                         <th style="text-align: center"><h4><b>PUNTUACIÓN</b></h4></th>
                                                         <th style="text-align: center"><h4><b>SELECCIONAR</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>RECHAZAR</b></h4></th>
                                                     </tr>
 
                                                     <tbody>
                                                     <?php
-                                                    $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion, postulante.nombre, postulante_empleo.seleccionado FROM postulante_empleo 
-                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.id_empleo = $id";
+                                                    $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion_cv,
+                                                                  postulante_empleo.calificacion_conocimientos, postulante_empleo.calificacion_psicologico,
+                                                                  postulante_empleo.fase, postulante.nombre, postulante_empleo.estado_fase FROM postulante_empleo 
+                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.id_empleo = $id AND postulante_empleo.rechazado = 0";
+                                                    echo $queryJobs;
                                                     $stmtJobs = mysqli_query($con,$queryJobs);
                                                     $i = 0;
                                                     while($row = mysqli_fetch_array($stmtJobs)) {
@@ -90,14 +95,20 @@ $con=conectar();?>
                                                         <tr>
                                                             <td align="center"><?php echo $i ?></td>
                                                             <td align="center"><?php echo $row['nombre'];?></td>
-                                                            <td align="center"><?php echo $row['calificacion'];?></td>
-                                                            <td align="center"><input type="checkbox" <?php if($row['seleccionado'] == 1){echo "checked";}else {echo "";}?> onchange="changeState(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
+                                                            <td align="center"><?php echo $row['fase'];?></td>
+                                                            <td align="center"><?php echo $row['calificacion_cv'];?></td>
+                                                            <td align="center"><input type="checkbox" <?php if($row['estado_fase'] == 1){echo "checked";}else {echo "";}?> onchange="changeState(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
+                                                            <td align="center"><input type="checkbox" onchange="reject(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
                                                         </tr>
                                                         <?php
                                                     }
                                                     ?>
                                                     </tbody>
                                                 </table>
+                                                <div align="center">
+                                                    <button class="btn btn-lg btn-success" onclick="reload()">Guardar</button>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -178,8 +189,27 @@ $con=conectar();?>
           success:  function (response) {
               console.log(response)
               $.jGrowl("El estado del postulante \"" + postulante + "\" fue actualizado con éxito", { header: 'Actualizado' });
-              setTimeout(location.reload.bind(location), 1500);
+              //setTimeout(location.reload.bind(location), 1500);
           }
       });
+    }
+
+    function reject(id,postulante, value) {
+        var parametros = {
+            "id" : id,
+            "state": (value) ? 1 : 0
+        };      $.ajax({
+            data:  parametros,
+            url:   'rejectSeeker.php',
+            type:  'post',
+            success:  function (response) {
+                console.log(response);
+                $.jGrowl("El estado del postulante \"" + postulante + "\" fue rechazado con éxito", { header: 'Actualizado' });
+            }
+        });
+    }
+    function reload() {
+        $.jGrowl("Se guardaron los cambios correctamente.", { header: 'Éxito' });
+        setTimeout(location.reload.bind(location), 1500);
     }
 </script>

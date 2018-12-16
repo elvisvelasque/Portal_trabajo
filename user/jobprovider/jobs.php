@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <h5>Conocimientos necesarios</h5>
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <button type="button" class="btn btn-danger" onclick="createInput()">Nuevo</button>
+                                                    <!--<button type="button" class="btn btn-danger" onclick="createInput()">Nuevo</button>-->
                                                 </div>
                                                 <br><br>
                                                 <div class="col-sm-6">
