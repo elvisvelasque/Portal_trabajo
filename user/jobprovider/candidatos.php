@@ -72,17 +72,7 @@ width:30%;
 							<div class="agileinfo-dot">
 								<div class="container" style="color: #fff;">
                                     <br><br><br><br><br>
-<div align="left">
-  <br><br><br>
-            <select placeholder="Empleo" name="rol" id="rol" onchange="#">
-                <option value="1">Practicante</option>
-                <option value="2">Practicante</option>
-            </select>
-            <select placeholder="Estado" name="rol" id="rol" onchange="select()">
-                <option value="1">Postulación</option>
-                <option value="2">Examen</option>
-            </select>
-        </div>                                    <br><br>
+<br><br><br>                              <br><br>
                                     <div class="container">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
