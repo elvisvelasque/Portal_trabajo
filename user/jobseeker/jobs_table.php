@@ -1,6 +1,9 @@
 <?php
  include("../../connection.php");
  $con = conectar();
+  session_start();
+  $id_post =  $_SESSION['id_post'];
+
 ?>
 	<form action="" method="post">
         <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
@@ -17,7 +20,9 @@
 		</thead>
 		<tbody>
 		<?php
-		$query2 = mysqli_query($con,"SELECT t.* FROM empleo t");
+		$query2 = mysqli_query($con,"SELECT t.* FROM empleo t where estado=1
+			and id_empleo not in (select distinct id_empleo from postulante_empleo
+			where id_postulante='$id_post')");
 		while($row2= mysqli_fetch_array($query2)){
 		$nro =$row2['id_empleo'];
 		$fecha = $row2['fecha'];
