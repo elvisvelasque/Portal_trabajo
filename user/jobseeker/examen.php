@@ -1,15 +1,18 @@
 <?php
  include("../../connection.php");
  $con = conectar();
-  session_start();
+ session_start();
  $id_post =  $_SESSION['id_post'];
-  function console_log( $data ){
+
+ function console_log( $data ){
     echo '<script>';
     echo 'console.log('. json_encode( $data ) .')';
     echo '</script>';
     }
+
 ?>
 <?php $get_id = $_GET['id']; ?>
+
 <html>
 <!DOCTYPE html>
 <html lang="es">
@@ -79,113 +82,60 @@ width:30%;
 							<div class="agileinfo-dot">
                                 <div class="container" style="color: #fff;">
                                 <?php
-                        $query = mysqli_query($con,"select * from empleo where id_empleo = '$get_id'")or die(mysql_error());
-                        $row = mysqli_fetch_array($query);
-                            ?>
+                        console_log($id_post);
+                        $query = mysqli_query($con,"SELECT * FROM `pregunta_examen` WHERE 
+                    id_examen in
+                    (select id_examen from examen where tipo in (select fase-1 as tipo from postulante_empleo 
+                    where id_empleo='$get_id' and id_postulante='$id_post') and id_empleo='$get_id')")or die(mysql_error());
+                        ?>
                         <form id="actualizar_cv" class="form-signin" method="post">
 
                                     <br><br><br><br><br><br>
                                     <div class="container">
-                                        <div class="col-lg-12">
-                                            <div class="container-fluid" style="background-color: whitesmoke; color: #000">
-                                                <h3 style="border-bottom: 2px solid red">Datos del empleo</h3>
-                                                <div class="col-md-12">
-                                                    <p>Título:</p>
-                                                    <p><?php echo $row['titulo']; ?></p>
-                                                    <p>Fecha de publicación:</p>
-                                                    <p><?php echo $row['fecha']; ?></p>
-                                        
-                                                    <p>Ubicación:</p>
-                                                    <p><?php echo $row['ubicacion']; ?></p>
 
-                                                    <p>Descripción:</p>
-                                                    <p><?php echo $row['descripcion']; ?></p>
-                                        
-                                                    <br><br>
-                                        
+                                        <div class="container-fluid">
+                                                <center>
+                                                <h1>EXAMEN</h1>
+                                                </center>
+                                        </div>
+                                        <div class="col-lg-12">
+
+
+                                        <?php 
+                                        while($row2= mysqli_fetch_array($query)){
+                                            $nro =$row2['id_pregunta'];
+                                             $encabezado = $row2['encabezado'];
+                                             $opcion1 =$row2['opcion1'];
+                                             $opcion2 =$row2['opcion2'];
+                                             $opcion3 =$row2['opcion3'];
+                                             $opcion4 =$row2['opcion4'];
+
+                                        ?>
+                    
+                                            <br>
+                                            <div class="container-fluid" style="background-color: whitesmoke; color: #000">
+                                                <h3 style="border-bottom: 2px solid red"><?php echo $encabezado; ?></h3>
+                                                <div class="col-md-12">
+                                                <input type="checkbox" name="PHP" value="1"><?php echo $opcion1; ?><br>
+                                                <input type="checkbox" name="JAVA" value="1"><?php echo $opcion2; ?><br>
+                                                <input type="checkbox" name="PYTHON" value="1"><?php echo $opcion3; ?><br>
+                                                <input type="checkbox" name="LARAVEL" value="1"><?php echo $opcion4; ?><br>
                                                 </div>
                                             </div>
+                                            <br>
+                                             <?php } ?>
 
-                                            <div class="container-fluid" style="background-color: whitesmoke; color: #000">
+
+                                            <div class="container-fluid">
                                                 <center>
-                                                <input type="submit" class="btn btn-info"  name="submit"/>
+                                                <input type="submit" class="btn btn-info"  value="TERMINAR EXAMEN"/>
                                                 </center>
                                             </div>
                                             
                                             <br>
                                         </div>
                                     </div>
-                        </form> 
-
-                <?php
-if(isset($_POST['submit']))
-{
-
-
-   $sql2="select * from postulante where id_postulante=4";
-   $result2=mysqli_query($con,$sql2);
-   $row2 = mysqli_fetch_array($result2);
-   $count=0;
-
- if ($row['c_php'] &&  $row2['php'] ){
-     $count= $count+1;
-   };
-   if ($row['c_python'] &&  $row2['python'] ){
-     $count= $count+1;
-   };
-    if ($row['c_sql'] &&  $row2['sql_'] ){
-     $count= $count+1;
-   };
-    if ($row['c_java'] &&  $row2['java']  ){
-     $count= $count+1;
-   };
-    if ($row['c_net'] &&  $row2['net'] ){
-     $count= $count+1;
-   };
-    if ($row['c_angular'] &&  $row2['angular'] ){
-     $count= $count+1;
-   };
-    if ($row['c_laravel'] &&  $row2['laravel'] ){
-     $count= $count+1;
-   };
-    if ($row['c_ofimatica'] &&  $row2['ofimatica'] ){
-     $count= $count+1;
-};
-
-
-   $sql2="insert into postulante_empleo (id_empleo,id_postulante,calificacion_cv,calificacion_conocimientos,calificacion_psicologico,calificacion_entrevista,fase,estado_fase) 
-   values ('$get_id','$id_post','$count',0,0,0,1,0)
-   ";
-   console_log($sql2);
-   $result=mysqli_query($con,$sql2);
-
-   if($result)
-   {
-
-        ?>
-      <script>
-      //alert('Has postulado');
-      window.location.href="jobs.php";
-             </script>
-    <?php
-   }
-   else
-   { ?>
-     <script>
-      alert('Error while register');
-      console.log(<?= json_encode($sql); ?>);
-      console.log(<?= json_encode($con); ?>);
-      console.log(<?= json_encode($result); ?>);
-
-      //window.location.href="register.php?Fail";
-     </script>
-     <?php
-   }
-}else{
-    console_log("nisiquiera entro");
-}
-
-?>
+                        </form>         
 
                                 </div>
                             </div>
@@ -220,8 +170,8 @@ if(isset($_POST['submit']))
 						<nav>
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="#">Inicio</a></li>
-								<li class="active"><a href="jobs.php">Puestos laborales</a></li>
-                                <li><a href="my_cv.php">Mi CV</a></li>
+								<li><a href="jobs.php">Puestos laborales</a></li>
+                                <li class="active"><a href="my_cv.php">Mi CV</a></li>
                                 <li><a href="index.php">Mis postulaciones</a></li>
 							    <li><a href="../../logout.php" >Cerrar sesión</a></li>
                                                                 
@@ -264,3 +214,96 @@ if(isset($_POST['submit']))
     </footer>
 </body>
 </html>
+
+                       <!-- <script>
+                                    jQuery(document).ready(function($){
+                                        $("#actualizar_cv").submit(function(e){
+                                            e.preventDefault();
+                                            var _this = $(e.target);
+                                            var formData = $(this).serialize();
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "actualizar_cv.php",
+                                                data: formData,
+                                                success: function(html){
+                                                    window.location = 'my_cv.php';
+                                                }
+                                            });
+                                        });
+                                    });
+                                </script> -->
+                    <?php
+
+if(isset($_POST['submit']))
+{
+        $dni = $_POST['dni'];
+        $direccion = $_POST['direccion'];
+        $Distrito = $_POST['Distrito'];
+        //$filePhoto = $_POST['filePhoto'];        foto ='$filePhoto',
+        $Telefono = $_POST['Telefono'];
+        $Edad = $_POST['Edad'];
+        $sexo = $_POST['Genero'];
+        $Estado = $_POST['Estado'];
+        $Lugar = $_POST['Lugar'];
+        $Institucion = $_POST['Institucion'];
+        $Puesto = $_POST['Puesto'];
+        $Carrera = $_POST['Carrera'];
+        $Descripcion = $_POST['Descripcion'];
+
+        $check_value1 = isset($_POST['PHP']) ? 1 : 0;
+        $check_value2 = isset($_POST['PYHTON']) ? 1 : 0;
+        $check_value3 = isset($_POST['JAVA']) ? 1 : 0;
+        $check_value4 = isset($_POST['SQL']) ? 1 : 0;
+        $check_value5 = isset($_POST['LARAVEL']) ? 1 : 0;
+        $check_value6 = isset($_POST['NET']) ? 1 : 0;
+        $check_value7 = isset($_POST['OFIMATICA']) ? 1 : 0;
+        $check_value8 = isset($_POST['ANGULAR']) ? 1 : 0;            
+        
+        $sql="update postulante 
+        set dni ='$dni',sexo ='$sexo',
+        direccion ='$direccion',
+        edad='$Edad',
+        telefono ='$Telefono',
+        distrito ='$Distrito',
+        estado_civil ='$Estado',
+        lugar_nac ='$Lugar',
+        institucion ='$Institucion', 
+        carrera ='$Carrera', 
+        puesto ='$Puesto', 
+        descripcion ='$Descripcion',
+        
+        php='$check_value1',
+        python='$check_value2',
+        java='$check_value3',
+        sql_='$check_value4',
+        laravel='$check_value5',
+        net='$check_value6',
+        ofimatica='$check_value7',
+        angular='$check_value8'
+        where id_postulante = $id_post
+        ";
+
+        console_log($sql);
+
+        $result=mysqli_query($con,$sql)or die(mysqli_error());
+        
+        if($result)  {
+
+        ?>
+      <script>
+      alert('successfully updated');
+      window.location.href="my_cv.php";
+             </script>
+        <?php
+            }
+        else{ ?>
+        <script>
+      alert('Error while updated');
+      console.log(<?= json_encode($sql); ?>);
+      console.log(<?= json_encode($result); ?>);
+      //window.location.href="register.php?Fail";
+     </script>
+     <?php
+   }
+}
+        ?>

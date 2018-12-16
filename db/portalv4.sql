@@ -204,16 +204,22 @@ CREATE TABLE `postulante_empleo` (
   `id_postulante_empleo` int(11) NOT NULL,
   `id_empleo` int(11) NOT NULL,
   `id_postulante` int(11) NOT NULL,
-  `calificacion` int(11) NOT NULL,
-  `seleccionado` int(11) NOT NULL
+  `calificacion_cv` int(11) NOT NULL,
+  `calificacion_conocimientos` int(11) NOT NULL,
+  `calificacion_psicologico` int(11) NOT NULL,
+  `calificacion_entrevista` int(11) NOT NULL,
+  `fase` int(11) NOT NULL,
+  `estado_fase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `postulante_empleo`
 --
 
-INSERT INTO `postulante_empleo` (`id_postulante_empleo`, `id_empleo`, `id_postulante`, `calificacion`, `seleccionado`) VALUES
-(1, 1, 1, 14, 1);
+
+INSERT INTO `postulante_empleo` (`id_postulante_empleo`, `id_empleo`, `id_postulante`, `calificacion_cv`, `calificacion_conocimientos`, `calificacion_psicologico`, `calificacion_entrevista`, `fase`, `estado_fase`) VALUES
+(1, 1, 1, 0, 0, 0, 0, 0, 0);
+
 
 -- --------------------------------------------------------
 

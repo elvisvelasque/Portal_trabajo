@@ -1,6 +1,15 @@
 <?php
  include("../../connection.php");
  $con = conectar();
+
+ function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+    }
+
+   session_start();
+ $id_post =  $_SESSION['id_post'];
 ?>
 	<form action="" method="post">
         <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
@@ -17,12 +26,30 @@
 		</thead>
 		<tbody>
 		<?php
-		$query2 = mysqli_query($con,"SELECT * FROM empleo ")or die(mysqli_error());
+		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase FROM postulante_empleo a
+		inner join empleo b on a.id_empleo=b.id_empleo and a.id_postulante='$id_post' ")or die(mysqli_error());
+		console_log($query2);
 		while($row2= mysqli_fetch_array($query2)){
 		$nro =$row2['id_empleo'];
 		$fecha = $row2['fecha'];
 		$lugar =$row2['ubicacion'];
 		$puesto =$row2['titulo'];
+		$estado_fase =$row2['estado_fase'];
+		console_log($estado_fase);
+		if ($estado_fase ==0 ){
+			$boton='Espera';
+			$href='#';
+		}else{
+			if ($estado_fase ==1 ){
+			$boton='Examen';
+			$href='examen.php?id='.$nro;
+			}else{
+			$boton='Terminado';
+			$href='#';
+			}
+		}
+
+		console_log($href);
 		?>
         <tr>
 		<!--<tr style=" <?php //if($stud_id==1){ echo 'display:none';}?> "> -->
@@ -32,7 +59,7 @@
 		<td align="center"><?php echo $puesto; ?></td>
 		<td align="center" class="empty" width="250">
 		
-		<a data-placement="top" title="Click to View all Details" id="view<?php echo $trabajo_id_id; ?>" href="view_pay.php<?php echo '?id='.$stud_id; ?>" class="btn btn-warning"><i class="icon-search icon-large"></i> Ver </a>
+		<a data-placement="top" title="Click to View all Details" id="view<?php echo $nro; ?>" href="<?php echo $href; ?>" class="btn btn-warning"><i class="icon-search icon-large"></i><?php echo $boton; ?></a>
             <?php } ?>
 
         </td>
