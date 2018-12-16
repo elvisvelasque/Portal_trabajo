@@ -165,6 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var newElem1 = document.createElement("BR");
         var newElem2 = document.createElement("BR");
         var newElem3 = document.createElement("BR");
+        var newElem4 = document.createElement("BR");
         var label = document.createElement("LABEL");
         label.style.fontSize = "25"
         var labelt = document.createTextNode("Pregunta "+contador+": ");
@@ -226,7 +227,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         inputOption4.name = "input"+contador+"o4";
         inputOption4.id = "input"+contador+"o4";
         inputOption4.required = true;
+
         option4.appendChild(inputOption4);
+
+        var option5 = document.createElement("LABEL");
+        var t5 = document.createTextNode("Respuesta: ");
+        option5.appendChild(t5);
+        var inputOption5 = document.createElement("select");
+        inputOption5.type = "text";
+        inputOption5.style.color = "black";
+        inputOption5.name = "respuesta"+contador;
+        inputOption5.id = "respuesta"+contador;
+        inputOption5.required = true;
+
+        var optionSelect1 = option1
+
+        option5.appendChild(inputOption5);
         container.appendChild(option1);
         container.appendChild(newElem1);
         container.appendChild(option2);
@@ -234,6 +250,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         container.appendChild(option3);
         container.appendChild(newElem3);
         container.appendChild(option4);
+        container.appendChild(newElem4);
+        container.appendChild(option5);
         $(function(){
             $("#formuploadajax2").on("submit", function(e){
                 e.preventDefault();
