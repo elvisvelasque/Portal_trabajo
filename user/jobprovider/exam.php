@@ -240,7 +240,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         inputOption5.id = "respuesta"+contador;
         inputOption5.required = true;
 
-        var optionSelect1 = option1
+        var optionSelect1 = document.createElement("option");
+        optionSelect1.value = 1;
+        optionSelect1.text = "Opcion 1";
+
+        var optionSelect2 = document.createElement("option");
+        optionSelect2.value = 2;
+        optionSelect2.text = "Opcion 2";
+
+        var optionSelect3 = document.createElement("option");
+        optionSelect3.value = 3;
+        optionSelect3.text = "Opcion 3";
+
+        var optionSelect4 = document.createElement("option");
+        optionSelect4.value = 4;
+        optionSelect4.text = "Opcion 4";
+        inputOption5.appendChild(optionSelect1);
+        inputOption5.appendChild(optionSelect2);
+        inputOption5.appendChild(optionSelect3);
+        inputOption5.appendChild(optionSelect4);
 
         option5.appendChild(inputOption5);
         container.appendChild(option1);
@@ -252,29 +270,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         container.appendChild(option4);
         container.appendChild(newElem4);
         container.appendChild(option5);
-        $(function(){
-            $("#formuploadajax2").on("submit", function(e){
-                e.preventDefault();
-                var f = $(this);
-                var formData = new FormData(document.getElementById("formuploadajax2"));
-                formData.append("dato", "valor");
-                $.ajax({
-                    url: "createExam.php",
-                    type: "post",
-                    dataType: "html",
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                })
+
+
+    }
+
+    $(function(){
+        $("#formuploadajax2").on("submit", function(e){
+            e.preventDefault();
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formuploadajax2"));
+            formData.append("dato", "valor");
+            $.ajax({
+                url: "createExam.php",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false
+            })
                 .done(function(res){
                     console.log(res);
                     $.jGrowl("Examen creado con éxito", { header: 'Agregado' });
                     setTimeout(location.reload.bind(location), 2500);
                 });
-            });
         });
-
-    }
+    });
 
 </script>
