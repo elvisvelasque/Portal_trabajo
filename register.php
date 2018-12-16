@@ -79,7 +79,7 @@ if(isset($_POST['submit']))
    $pass=$_POST['pass'];
    $cv=$_POST['fileToUpload'];
 
-   $sql="insert into postulante (`nombre`,`contraseña`,`email`,`cv`) values ('$user','$pass','$email','$cv')";
+   $sql="insert into postulante (nombre,contrasena,email,cv) values ('$user','$pass','$email','$cv')";
    $result=mysqli_query($con,$sql);
 
    if($result)
@@ -88,7 +88,7 @@ if(isset($_POST['submit']))
    	    ?>
       <script>
       alert('successfully registered');
-      window.location.href="login.html?success";
+      window.location.href="login.php";
              </script>
     <?php
    }

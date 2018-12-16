@@ -1,10 +1,3 @@
-<?php
-
-    include('connection.php');
-    session_start();
-    $con = conectar();
- ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,7 +45,7 @@ u:hover {
    
 <div class="content-w3ls">
 	<div class="form-w3ls">
-		<form action="login.php" method="post" id="form">
+		<form  method="post" id="form">
 			<div class="content-wthree1">
                 <div class="form-control">
                     <label class="header">Correo electrónico<span>:</span></label>
@@ -62,22 +55,80 @@ u:hover {
                     <label class="header">Contraseña <span>:</span></label>
                     <input type="password" id="pass" name="pass" title="Por favor ingresa tu contraseña" required>
                 </div>
-                <div class="content-wthree4">
+               
+                <div class="form-control" align="center">
+                  <select name="rol" id="rol" onchange="">
+                  <option value="A">Administrador</option>
+                  <option value="P">Postulante</option>
+                  </select>
+                </div>
+
+                <br><br>
+
+                 <div class="content-wthree4">
                     <div class="form-control">
-                        <input type="submit" class="register" name="login">
+                        <input type="submit" class="register" value="Aceptar" name="submit">
                     </div>
                 </div>
-            </div>
-		</form>
-        <br>
-        <br>
-        <br>
-        <div align="center">
-            <select name="rol" id="rol" onchange="select()">
-                <option value="1">Administrador</option>
-                <option value="2">Postulante</option>
-            </select>
-        </div>
+             </div>
+        </form>
+
+<?php
+    include('connection.php');
+    $con = conectar();
+    function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+    }
+
+?>
+<?php
+if(isset($_POST['submit']))
+{
+    $username = $_POST['email'];
+    $password = $_POST['pass'];
+    $rol = $_POST['rol'];
+
+
+    $sql="SELECT * FROM postulante WHERE email='$username' and contrasena='$password' and rol='$rol'";
+    $result=mysqli_query($con,$sql);
+    $count=mysqli_num_rows($result);
+
+    if($count > 0){
+        echo 'true';
+        if($rol == 'A'){
+            ?>
+            <script>
+                alert('successfully registered');
+                window.location.href="user/jobprovider/index.php";
+             </script>
+     <?php       
+     }else{
+         ?>
+            <script>
+                alert('successfully registered');
+                 window.location.href="user/jobseeker/index.php";
+            </script>
+     <?php 
+
+        }
+    }
+    else{
+        console_log($sql)
+     ?>
+            <script>
+                alert('error');
+                window.location.href="login.php";
+             </script>
+     <?php  
+             
+    }
+}
+
+    ?>
+
+
 	</div>
 </div>
 
@@ -86,52 +137,9 @@ u:hover {
 </body>
 </html>
 
- <script>
-      //window.location.href="user/jobseeker/index.php?success";
-       if(document.getElementById("rol").value === 1){
-            document.getElementById("form").action = "user/jobprovider/index.php";
-        }
-        else{
-            document.getElementById("form").action = "user/jobseeker/index.php";
-    
-        }
-
-        </script>
 
 
-
- <?php
-
-if(isset($_POST['submit']))
-{
-    $username = $_POST['email'];
-    $password = $_POST['pass'];
-
-    $sql="SELECT * FROM postulante WHERE email='$username' and contraseña='$password'";
-    $result=mysqli_query($con,$sql);
-    $count=mysqli_num_rows($result);
-
- ?>
- <script>
-      console.log(<?= json_encode($sql); ?>);
-
-
- </script>
-
-    <?php
-
-
-
-    if($count > 0){
-        echo 'true';
-    }
-    else{
-            echo 'false';
-             
-    }
-}
-
-    ?>
+ 
 
 
       

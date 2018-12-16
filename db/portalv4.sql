@@ -157,18 +157,35 @@ CREATE TABLE `postulante` (
   `direccion` varchar(70) DEFAULT NULL,
   `distrito` varchar(70) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
-  `telefono` varchar(9) DEFAULT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `contrasena` varchar(30) DEFAULT NULL,
   `edad` varchar(100) DEFAULT NULL,
-  `sexo` varchar(15) DEFAULT NULL,
+  `sexo` varchar(20) DEFAULT NULL,
   `estado_civil` varchar(30) DEFAULT NULL,
   `lugar_nac` varchar(110) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
-  `carrera` varchar(8) DEFAULT NULL,
-  `foto` varchar(50) DEFAULT NULL,
+  `carrera` varchar(50) DEFAULT NULL,
+  `foto` varchar(50) DEFAULT 'user.png',
   `puesto` varchar(50) DEFAULT NULL,
-  `conocimientos` varchar(50) DEFAULT NULL
+  `conocimientos` varchar(50) DEFAULT NULL,
+  `rol` varchar(2) DEFAULT 'P',
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `postulante` (`id_postulante`, `email`,`contrasena`, `rol`) VALUES
+(1, 'admin@gmail.com', 'admin','A')
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `postulante_empleo`
+--
+CREATE TABLE `postulante_empleo_2` (
+  `id_postulante` int(11) NOT NULL,
+  `id_empleo` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Volcado de datos para la tabla `postulante`
 --
@@ -250,10 +267,6 @@ ALTER TABLE `empleo`
   ADD PRIMARY KEY (`id_empleo`);
 
 --
--- Indices de la tabla `examen`
---
-ALTER TABLE `examen`
-  ADD PRIMARY KEY (`id_examen`);
 
 --
 -- Indices de la tabla `postulante`
@@ -261,7 +274,6 @@ ALTER TABLE `examen`
 ALTER TABLE `postulante`
   ADD PRIMARY KEY (`id_postulante`);
 
---
 -- Indices de la tabla `postulante_empleo`
 --
 ALTER TABLE `postulante_empleo`
@@ -314,6 +326,12 @@ ALTER TABLE `pregunta_examen`
   MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
+--
+-- AUTO_INCREMENT de la tabla `postulante`
+--
+
+ALTER TABLE `postulante`
+  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
