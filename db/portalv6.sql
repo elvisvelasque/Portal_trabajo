@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2018 a las 08:14:44
+-- Tiempo de generación: 16-12-2018 a las 08:30:37
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -143,7 +143,17 @@ INSERT INTO `examen` (`id_examen`, `id_empleo`, `estado`, `tipo`) VALUES
 (4, 1, 0, 1),
 (5, 1, 0, 1),
 (6, 1, 0, 1),
-(7, 1, 0, 1);
+(7, 1, 0, 1),
+(8, 3, 0, 1),
+(9, 3, 0, 1),
+(10, 3, 0, 1),
+(11, 3, 0, 1),
+(12, 3, 0, 1),
+(13, 3, 0, 1),
+(14, 3, 0, 1),
+(15, 3, 0, 1),
+(16, 3, 0, 1),
+(17, 3, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -238,7 +248,34 @@ INSERT INTO `pregunta_examen` (`id_pregunta`, `id_examen`, `encabezado`, `opcion
 (10, 5, 'Q2', 'Q2', '2Q2', '2', '2', 0),
 (11, 5, 'Q2', 'Q2', '2Q2', '2', '2', 0),
 (12, 6, 'RT', 'ERT', 'ERT', 'ERT', 'ERT', 0),
-(13, 7, 'as', 'aa', 'a', 'a', 'a', 0);
+(13, 7, 'as', 'aa', 'a', 'a', 'a', 0),
+(14, 8, 'fwe', 'e', 'qwe', 'we', 'we', 3),
+(15, 9, 'we', 'we', 'we', 'qwe', 'qwe', 1),
+(16, 9, 'wqe', 'wqe', 'we', 'qwe', 'qwe', 2),
+(17, 10, 'we', 'we', 'we', 'qwe', 'qwe', 1),
+(18, 10, 'wqe', 'wqe', 'we', 'qwe', 'qwe', 2),
+(19, 12, 'qwe', 'we', 'we', 'we', 'we', 1),
+(20, 12, 'qwe', 'we', 'we', 'we', 'we', 1),
+(21, 12, 'qw', 'w', 'w', 'w', 'w', 4),
+(22, 12, 'qw', 'w', 'w', 'w', 'w', 4),
+(23, 16, '1', '1', '1', '1', '1', 1),
+(24, 16, '1', '1', '1', '1', '1', 1),
+(25, 16, '2', '2', '2', '2', '2', 2),
+(26, 16, '1', '1', '1', '1', '1', 1),
+(27, 16, '1', '1', '1', '1', '1', 1),
+(28, 16, '2', '2', '2', '2', '2', 2),
+(29, 16, '3', '3', '3', '3', '3', 3),
+(30, 16, '2', '2', '2', '2', '2', 2),
+(31, 16, '3', '3', '3', '3', '3', 3),
+(32, 16, '2', '2', '2', '2', '2', 2),
+(33, 16, '4', '4', '4', '4', '4', 4),
+(34, 16, '4', '4', '4', '4', '4', 4),
+(35, 16, '3', '3', '3', '3', '3', 3),
+(36, 16, '3', '3', '3', '3', '3', 3),
+(37, 16, '4', '4', '4', '4', '4', 4),
+(38, 16, '4', '4', '4', '4', '4', 4),
+(39, 17, '1', '1', '1', '1', '1', 1),
+(40, 17, '2', '2', '2', '2', '2', 2);
 
 --
 -- Índices para tablas volcadas
@@ -300,7 +337,7 @@ ALTER TABLE `empleo`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `id_examen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_examen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `postulante`
@@ -318,7 +355,7 @@ ALTER TABLE `postulante_empleo`
 -- AUTO_INCREMENT de la tabla `pregunta_examen`
 --
 ALTER TABLE `pregunta_examen`
-  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
