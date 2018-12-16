@@ -159,7 +159,7 @@ width:30%;
                                                     <p>Puesto</p>
                                                     <input type="text" class="form-control span9" name="Puesto" id="Puesto"   placeholder="Puesto" value="<?php echo $row['puesto']; ?>" required>
                                                     <p>Descripción</p>
-                                                    <input type="text" class="form-control span9" name="Descripcion" id="Descripcion"   placeholder="Descripcion" value="<?php echo $row['Descripcion']; ?>" required>
+                                                    <input type="text" class="form-control span9" name="Descripcion" id="Descripcion"   placeholder="Descripcion" value="<?php echo $row['descripcion']; ?>" required>
                                                 </div>
                                             </div>
 
