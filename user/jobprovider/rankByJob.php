@@ -74,14 +74,18 @@ $con=conectar();?>
                                                     <tr style="background-color: rgba(211,211,211, .6)">
                                                         <th style="text-align: center"><h4><b>#</b></h4></th>
                                                         <th style="text-align: center"><h4><b>POSTULANTE</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>FASE</b></h4></th>
                                                         <th style="text-align: center"><h4><b>PUNTUACIÓN</b></h4></th>
                                                         <th style="text-align: center"><h4><b>SELECCIONAR</b></h4></th>
+                                                        <th style="text-align: center"><h4><b>RECHAZAR</b></h4></th>
                                                     </tr>
 
                                                     <tbody>
                                                     <?php
-                                                    $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion, postulante.nombre, postulante_empleo.seleccionado FROM postulante_empleo 
-                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.id_empleo = $id";
+                                                    $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion_cv,
+                                                                  postulante_empleo.calificacion_conocimientos, postulante_empleo.calificacion_psicologico, postulante_empleo.calificacion_entrevista,
+                                                                  postulante_empleo.fase, postulante.nombre, postulante_empleo.estado_fase FROM postulante_empleo 
+                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.id_empleo = $id AND postulante_empleo.rechazado = 0";
                                                     $stmtJobs = mysqli_query($con,$queryJobs);
                                                     $i = 0;
                                                     while($row = mysqli_fetch_array($stmtJobs)) {
@@ -90,14 +94,44 @@ $con=conectar();?>
                                                         <tr>
                                                             <td align="center"><?php echo $i ?></td>
                                                             <td align="center"><?php echo $row['nombre'];?></td>
-                                                            <td align="center"><?php echo $row['calificacion'];?></td>
-                                                            <td align="center"><input type="checkbox" <?php if($row['seleccionado'] == 1){echo "checked";}else {echo "";}?> onchange="changeState(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
+                                                            <td align="center"><?php
+                                                                if($row['fase'] == 1)
+                                                                    echo "Evaluación de CV";
+                                                                else{
+                                                                    if($row['fase'] == 2)
+                                                                        echo "Evaluación de conocimientos";
+                                                                    else {
+                                                                        if ($row['fase'] == 3)
+                                                                            echo "Evaluación psicológica";
+                                                                        else
+                                                                            echo "Entrevista";
+                                                                     }
+                                                                }?></td>
+                                                            <td align="center"><?php
+                                                                if($row['fase'] == 1)
+                                                                    echo $row['calificacion_cv'];
+                                                                else{
+                                                                    if($row['fase'] == 2)
+                                                                        echo $row['calificacion_conocimientos'];
+                                                                    else {
+                                                                        if ($row['fase'] == 3)
+                                                                            echo $row['calificacion_psicologico'];
+                                                                        else
+                                                                            echo "<Input type='number' id='"."inputInterview".$row['id_postulante_empleo']."' style='width: 50px' min='0' max='20' value='".$row['calificacion_entrevista']."' > <button class='btn btn-success' onclick='saveQualification(".$row['id_postulante_empleo'].","."\"".$row['nombre']."\"".")'> <span class=\"glyphicon glyphicon-floppy-disk\"></span></button>";
+                                                                    }
+                                                                }?></td>
+                                                            <td align="center"><input type="checkbox" id="seleccionado<?php echo $row['id_postulante_empleo']?>" <?php if($row['estado_fase'] == 1){echo "checked";}else {echo "";}?> onchange="changeState(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, <?php echo $row['fase'];?>, this.checked)"></td>
+                                                            <td align="center"><input type="checkbox" id="rechazado<?php echo $row['id_postulante_empleo']?>" onchange="reject(<?php echo $row['id_postulante_empleo'];?>, <?php echo "'".$row['nombre']."'";?>, this.checked)"></td>
                                                         </tr>
                                                         <?php
                                                     }
                                                     ?>
                                                     </tbody>
                                                 </table>
+                                                <div align="center">
+                                                    <button class="btn btn-lg btn-success" onclick="reload()">Guardar</button>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -167,19 +201,60 @@ $con=conectar();?>
 </html>
 
 <script type="application/javascript">
-    function changeState(id,postulante, value) {
-      var parametros = {
+    function changeState(id,postulante, fase, value) {
+        // console.log("rechazado"+id);
+        // var element = document.getElementById("rechazado"+id);
+        // element.disabled = !value;
+        var parametros = {
           "id" : id,
-          "state": (value) ? 1 : 0
-      };      $.ajax({
+          "state": (value) ? 1 : 0,
+          "fase": fase
+        };
+        console.log(parametros);
+        $.ajax({
           data:  parametros,
           url:   'updateStateSeeker.php',
           type:  'post',
           success:  function (response) {
               console.log(response)
               $.jGrowl("El estado del postulante \"" + postulante + "\" fue actualizado con éxito", { header: 'Actualizado' });
-              setTimeout(location.reload.bind(location), 1500);
+              //setTimeout(location.reload.bind(location), 1500);
           }
-      });
+        });
+    }
+
+    function reject(id,postulante, value) {
+        var parametros = {
+            "id" : id,
+            "state": (value) ? 1 : 0
+        };      $.ajax({
+            data:  parametros,
+            url:   'rejectSeeker.php',
+            type:  'post',
+            success:  function (response) {
+                console.log(response);
+                $.jGrowl("El estado del postulante \"" + postulante + "\" fue rechazado con éxito", { header: 'Actualizado' });
+            }
+        });
+    }
+    function reload() {
+        $.jGrowl("Se guardaron los cambios correctamente.", { header: 'Éxito' });
+        setTimeout(location.reload.bind(location), 1500);
+    }
+    function saveQualification(id, postulante) {
+        var valor = document.getElementById("inputInterview"+id).value;
+        var parametros = {
+            "id" : id,
+            "value": valor
+        };
+        $.ajax({
+            data:  parametros,
+            url:   'setInterviewScore.php',
+            type:  'post',
+            success:  function (response) {
+                console.log(response);
+                $.jGrowl("La puntuación del postulante \"" + postulante + "\" fue rechazado con éxito", { header: 'Actualizado' });
+            }
+        });
     }
 </script>

@@ -165,6 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var newElem1 = document.createElement("BR");
         var newElem2 = document.createElement("BR");
         var newElem3 = document.createElement("BR");
+        var newElem4 = document.createElement("BR");
         var label = document.createElement("LABEL");
         label.style.fontSize = "25"
         var labelt = document.createTextNode("Pregunta "+contador+": ");
@@ -226,7 +227,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         inputOption4.name = "input"+contador+"o4";
         inputOption4.id = "input"+contador+"o4";
         inputOption4.required = true;
+
         option4.appendChild(inputOption4);
+
+        var option5 = document.createElement("LABEL");
+        var t5 = document.createTextNode("Respuesta: ");
+        option5.appendChild(t5);
+        var inputOption5 = document.createElement("select");
+        inputOption5.type = "text";
+        inputOption5.style.color = "black";
+        inputOption5.name = "respuesta"+contador;
+        inputOption5.id = "respuesta"+contador;
+        inputOption5.required = true;
+
+        var optionSelect1 = document.createElement("option");
+        optionSelect1.value = 1;
+        optionSelect1.text = "Opcion 1";
+
+        var optionSelect2 = document.createElement("option");
+        optionSelect2.value = 2;
+        optionSelect2.text = "Opcion 2";
+
+        var optionSelect3 = document.createElement("option");
+        optionSelect3.value = 3;
+        optionSelect3.text = "Opcion 3";
+
+        var optionSelect4 = document.createElement("option");
+        optionSelect4.value = 4;
+        optionSelect4.text = "Opcion 4";
+        inputOption5.appendChild(optionSelect1);
+        inputOption5.appendChild(optionSelect2);
+        inputOption5.appendChild(optionSelect3);
+        inputOption5.appendChild(optionSelect4);
+
+        option5.appendChild(inputOption5);
         container.appendChild(option1);
         container.appendChild(newElem1);
         container.appendChild(option2);
@@ -234,29 +268,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         container.appendChild(option3);
         container.appendChild(newElem3);
         container.appendChild(option4);
-        $(function(){
-            $("#formuploadajax2").on("submit", function(e){
-                e.preventDefault();
-                var f = $(this);
-                var formData = new FormData(document.getElementById("formuploadajax2"));
-                formData.append("dato", "valor");
-                $.ajax({
-                    url: "createExam.php",
-                    type: "post",
-                    dataType: "html",
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                })
+        container.appendChild(newElem4);
+        container.appendChild(option5);
+
+
+    }
+
+    $(function(){
+        $("#formuploadajax2").on("submit", function(e){
+            e.preventDefault();
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formuploadajax2"));
+            formData.append("dato", "valor");
+            $.ajax({
+                url: "createExam.php",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false
+            })
                 .done(function(res){
                     console.log(res);
                     $.jGrowl("Examen creado con éxito", { header: 'Agregado' });
                     setTimeout(location.reload.bind(location), 2500);
                 });
-            });
         });
-
-    }
+    });
 
 </script>

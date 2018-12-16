@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2018 a las 05:13:35
+-- Tiempo de generación: 16-12-2018 a las 08:30:37
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -98,25 +98,26 @@ CREATE TABLE `empleo` (
   `c_angular` int(11) NOT NULL,
   `c_laravel` int(11) NOT NULL,
   `c_net` int(11) NOT NULL,
-  `c_sql` int(11) NOT NULL
+  `c_sql` int(11) NOT NULL,
+  `fase` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `empleo`
 --
 
-INSERT INTO `empleo` (`id_empleo`, `titulo`, `ubicacion`, `descripcion`, `estado`, `fecha`, `c_php`, `c_java`, `c_python`, `c_ofimatica`, `c_angular`, `c_laravel`, `c_net`, `c_sql`) VALUES
-(1, 'tituloEmpleo', 'ubicacion', 'descripcion', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'ass', 'sa', 'sa', 2, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'qqqqq', 'qqq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(25, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(26, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0),
-(29, 'qwe', 'qwe', 'qwe', 1, '2018-12-15 23:06:00', 0, 0, 1, 1, 0, 0, 0, 0),
-(30, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:23', 1, 0, 1, 0, 0, 0, 0, 0),
-(31, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:45', 0, 0, 0, 0, 0, 0, 0, 0),
-(32, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:52', 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `empleo` (`id_empleo`, `titulo`, `ubicacion`, `descripcion`, `estado`, `fecha`, `c_php`, `c_java`, `c_python`, `c_ofimatica`, `c_angular`, `c_laravel`, `c_net`, `c_sql`, `fase`) VALUES
+(1, 'tituloEmpleo', 'ubicacion', 'descripcion', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'ass', 'sa', 'sa', 2, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'qqqqq', 'qqq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 'ASD', 'ASD', 'ASD', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(25, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(26, 'qq', 'qq', 'qqq', 1, '2018-12-14 19:53:44', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(29, 'qwe', 'qwe', 'qwe', 1, '2018-12-15 23:06:00', 0, 0, 1, 1, 0, 0, 0, 0, 0),
+(30, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:23', 1, 0, 1, 0, 0, 0, 0, 0, 0),
+(31, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:45', 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(32, 'qwe', 'qqqq', 'qew', 1, '2018-12-15 23:06:52', 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -142,7 +143,17 @@ INSERT INTO `examen` (`id_examen`, `id_empleo`, `estado`, `tipo`) VALUES
 (4, 1, 0, 1),
 (5, 1, 0, 1),
 (6, 1, 0, 1),
-(7, 1, 0, 1);
+(7, 1, 0, 1),
+(8, 3, 0, 1),
+(9, 3, 0, 1),
+(10, 3, 0, 1),
+(11, 3, 0, 1),
+(12, 3, 0, 1),
+(13, 3, 0, 1),
+(14, 3, 0, 1),
+(15, 3, 0, 1),
+(16, 3, 0, 1),
+(17, 3, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -157,42 +168,25 @@ CREATE TABLE `postulante` (
   `direccion` varchar(70) DEFAULT NULL,
   `distrito` varchar(70) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
-  `telefono` varchar(15) DEFAULT NULL,
-  `contrasena` varchar(30) DEFAULT NULL,
+  `telefono` varchar(9) DEFAULT NULL,
   `edad` varchar(100) DEFAULT NULL,
-  `sexo` varchar(20) DEFAULT NULL,
-  `cv` varchar(100) DEFAULT NULL,
+  `sexo` varchar(15) DEFAULT NULL,
   `estado_civil` varchar(30) DEFAULT NULL,
   `lugar_nac` varchar(110) DEFAULT NULL,
   `institucion` varchar(100) DEFAULT NULL,
-  `carrera` varchar(50) DEFAULT NULL,
-  `foto` varchar(50) DEFAULT 'user.png',
+  `carrera` varchar(8) DEFAULT NULL,
+  `foto` varchar(50) DEFAULT NULL,
   `puesto` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(50) DEFAULT NULL,
-  `rol` varchar(2) DEFAULT 'P',
-  `php` int(11) DEFAULT 0,
-  `java` int(11) DEFAULT 0,
-  `python` int(11) DEFAULT 0,
-  `laravel` int(11) DEFAULT 0,
-  `net` int(11) DEFAULT 0,
-  `sql_` int(11) DEFAULT 0,
-  `ofimatica` int(11) DEFAULT 0,
-  `angular` int(11) DEFAULT 0
-
+  `conocimientos` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `postulante` (`id_postulante`, `email`,`contrasena`, `rol`) VALUES
-(1, 'admin@gmail.com', 'admin','A');
-
--- --------------------------------------------------------
 
 --
 -- Volcado de datos para la tabla `postulante`
 --
 
-INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`) VALUES
-(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe'),
-(3, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe');
+INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`, `conocimientos`) VALUES
+(1, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe'),
+(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe', 'qwe');
 
 -- --------------------------------------------------------
 
@@ -209,17 +203,16 @@ CREATE TABLE `postulante_empleo` (
   `calificacion_psicologico` int(11) NOT NULL,
   `calificacion_entrevista` int(11) NOT NULL,
   `fase` int(11) NOT NULL,
-  `estado_fase` int(11) NOT NULL
+  `estado_fase` int(11) NOT NULL,
+  `rechazado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `postulante_empleo`
 --
 
-
-INSERT INTO `postulante_empleo` (`id_postulante_empleo`, `id_empleo`, `id_postulante`, `calificacion_cv`, `calificacion_conocimientos`, `calificacion_psicologico`, `calificacion_entrevista`, `fase`, `estado_fase`) VALUES
-(1, 1, 1, 0, 0, 0, 0, 0, 0);
-
+INSERT INTO `postulante_empleo` (`id_postulante_empleo`, `id_empleo`, `id_postulante`, `calificacion_cv`, `calificacion_conocimientos`, `calificacion_psicologico`, `calificacion_entrevista`, `fase`, `estado_fase`, `rechazado`) VALUES
+(1, 1, 1, 5, 0, 0, 18, 4, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -234,27 +227,55 @@ CREATE TABLE `pregunta_examen` (
   `opcion1` varchar(50) NOT NULL,
   `opcion2` varchar(50) NOT NULL,
   `opcion3` varchar(50) NOT NULL,
-  `opcion4` varchar(50) NOT NULL
+  `opcion4` varchar(50) NOT NULL,
+  `respuesta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `pregunta_examen`
 --
 
-INSERT INTO `pregunta_examen` (`id_pregunta`, `id_examen`, `encabezado`, `opcion1`, `opcion2`, `opcion3`, `opcion4`) VALUES
-(1, 1, 'e', 'ew', 'werwe', 'er', 'wer'),
-(2, 2, 'wer', 'werw', 'werwer', 'er', 'wer'),
-(3, 5, 'AS', 'QW', 'QW', 'QW', 'QW'),
-(4, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ'),
-(5, 5, 'AS', 'QW', 'QW', 'QW', 'QW'),
-(6, 5, 'AS', 'QW', 'QW', 'QW', 'QW'),
-(7, 5, 'Q2', 'Q2', '2Q2', '2', '2'),
-(8, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ'),
-(9, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ'),
-(10, 5, 'Q2', 'Q2', '2Q2', '2', '2'),
-(11, 5, 'Q2', 'Q2', '2Q2', '2', '2'),
-(12, 6, 'RT', 'ERT', 'ERT', 'ERT', 'ERT'),
-(13, 7, 'as', 'aa', 'a', 'a', 'a');
+INSERT INTO `pregunta_examen` (`id_pregunta`, `id_examen`, `encabezado`, `opcion1`, `opcion2`, `opcion3`, `opcion4`, `respuesta`) VALUES
+(1, 1, 'e', 'ew', 'werwe', 'er', 'wer', 0),
+(2, 2, 'wer', 'werw', 'werwer', 'er', 'wer', 0),
+(3, 5, 'AS', 'QW', 'QW', 'QW', 'QW', 0),
+(4, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ', 0),
+(5, 5, 'AS', 'QW', 'QW', 'QW', 'QW', 0),
+(6, 5, 'AS', 'QW', 'QW', 'QW', 'QW', 0),
+(7, 5, 'Q2', 'Q2', '2Q2', '2', '2', 0),
+(8, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ', 0),
+(9, 5, 'QWQ', 'QWQ', 'QWQ', 'QWQ', 'QWQ', 0),
+(10, 5, 'Q2', 'Q2', '2Q2', '2', '2', 0),
+(11, 5, 'Q2', 'Q2', '2Q2', '2', '2', 0),
+(12, 6, 'RT', 'ERT', 'ERT', 'ERT', 'ERT', 0),
+(13, 7, 'as', 'aa', 'a', 'a', 'a', 0),
+(14, 8, 'fwe', 'e', 'qwe', 'we', 'we', 3),
+(15, 9, 'we', 'we', 'we', 'qwe', 'qwe', 1),
+(16, 9, 'wqe', 'wqe', 'we', 'qwe', 'qwe', 2),
+(17, 10, 'we', 'we', 'we', 'qwe', 'qwe', 1),
+(18, 10, 'wqe', 'wqe', 'we', 'qwe', 'qwe', 2),
+(19, 12, 'qwe', 'we', 'we', 'we', 'we', 1),
+(20, 12, 'qwe', 'we', 'we', 'we', 'we', 1),
+(21, 12, 'qw', 'w', 'w', 'w', 'w', 4),
+(22, 12, 'qw', 'w', 'w', 'w', 'w', 4),
+(23, 16, '1', '1', '1', '1', '1', 1),
+(24, 16, '1', '1', '1', '1', '1', 1),
+(25, 16, '2', '2', '2', '2', '2', 2),
+(26, 16, '1', '1', '1', '1', '1', 1),
+(27, 16, '1', '1', '1', '1', '1', 1),
+(28, 16, '2', '2', '2', '2', '2', 2),
+(29, 16, '3', '3', '3', '3', '3', 3),
+(30, 16, '2', '2', '2', '2', '2', 2),
+(31, 16, '3', '3', '3', '3', '3', 3),
+(32, 16, '2', '2', '2', '2', '2', 2),
+(33, 16, '4', '4', '4', '4', '4', 4),
+(34, 16, '4', '4', '4', '4', '4', 4),
+(35, 16, '3', '3', '3', '3', '3', 3),
+(36, 16, '3', '3', '3', '3', '3', 3),
+(37, 16, '4', '4', '4', '4', '4', 4),
+(38, 16, '4', '4', '4', '4', '4', 4),
+(39, 17, '1', '1', '1', '1', '1', 1),
+(40, 17, '2', '2', '2', '2', '2', 2);
 
 --
 -- Índices para tablas volcadas
@@ -284,6 +305,7 @@ ALTER TABLE `examen`
 ALTER TABLE `postulante`
   ADD PRIMARY KEY (`id_postulante`);
 
+--
 -- Indices de la tabla `postulante_empleo`
 --
 ALTER TABLE `postulante_empleo`
@@ -315,7 +337,7 @@ ALTER TABLE `empleo`
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `id_examen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_examen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `postulante`
@@ -333,13 +355,9 @@ ALTER TABLE `postulante_empleo`
 -- AUTO_INCREMENT de la tabla `pregunta_examen`
 --
 ALTER TABLE `pregunta_examen`
-  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT de la tabla `postulante`
---
+  MODIFY `id_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+COMMIT;
 
-ALTER TABLE `postulante`
-  MODIFY `id_postulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

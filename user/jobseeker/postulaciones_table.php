@@ -35,6 +35,8 @@
 		$lugar =$row2['ubicacion'];
 		$puesto =$row2['titulo'];
 		$estado_fase =$row2['estado_fase'];
+		$rechazado =$row2['rechazado'];
+
 		console_log($estado_fase);
 		if ($estado_fase ==0 ){
 			$boton='Espera';
@@ -44,6 +46,8 @@
 			$boton='Examen';
 			$href='examen.php?id='.$nro;
 			}else{
+
+			if ($rechazado==1)
 			$boton='Terminado';
 			$href='#';
 			}
