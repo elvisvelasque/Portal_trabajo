@@ -91,11 +91,10 @@ if(isset($_POST['submit']))
     $password = $_POST['pass'];
     $rol = $_POST['rol'];
 
-
     $sql="SELECT * FROM postulante WHERE email='$username' and contrasena='$password' and rol='$rol'";
     $result=mysqli_query($con,$sql);
     $row = mysqli_fetch_array($result);
-
+    echo $sql;
     session_start();
     $_SESSION['id_post']=$row['id_postulante'];
     

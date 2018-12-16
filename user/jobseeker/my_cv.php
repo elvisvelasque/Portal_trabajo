@@ -254,24 +254,6 @@ width:30%;
     </footer>
 </body>
 </html>
-
-                       <!-- <script>
-                                    jQuery(document).ready(function($){
-                                        $("#actualizar_cv").submit(function(e){
-                                            e.preventDefault();
-                                            var _this = $(e.target);
-                                            var formData = $(this).serialize();
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "actualizar_cv.php",
-                                                data: formData,
-                                                success: function(html){
-                                                    window.location = 'my_cv.php';
-                                                }
-                                            });
-                                        });
-                                    });
-                                </script> -->
                     <?php
 
 if(isset($_POST['submit']))
@@ -323,7 +305,7 @@ if(isset($_POST['submit']))
         where id_postulante = $id_post
         ";
 
-        console_log($sql);
+        echo $sql;
 
         $result=mysqli_query($con,$sql)or die(mysqli_error());
         
