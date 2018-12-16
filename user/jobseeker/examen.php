@@ -109,6 +109,42 @@ width:30%;
                                              $opcion2 =$row2['opcion2'];
                                              $opcion3 =$row2['opcion3'];
                                              $opcion4 =$row2['opcion4'];
+                                             $respuesta =$row2['respuesta'];
+
+                                             if ($respuesta==1) {
+                                                $valor1=1;
+                                                $valor2=0;
+                                                $valor3=0;
+                                                $valor4=0;
+
+                                             }else{
+                                                  if ($respuesta==2) {
+                                                $valor1=0;
+                                                $valor2=1;
+                                                $valor3=0;
+                                                $valor4=0;                                            
+                                             }else{
+                                                  if ($respuesta==3) {
+                                                $valor1=0;
+                                                $valor2=0;
+                                                $valor3=1;
+                                                $valor4=0;
+                                             }else{
+                                                  if ($respuesta==4) {
+                                                $valor1=0;
+                                                $valor2=0;
+                                                $valor3=0;
+                                                $valor4=1;
+                                             }else{
+                                                $valor1=0;
+                                                $valor2=0;
+                                                $valor3=0;
+                                                $valor4=0;
+                                             }
+                                             }
+                                             }
+                                             }
+
 
                                         ?>
                     
@@ -116,10 +152,10 @@ width:30%;
                                             <div class="container-fluid" style="background-color: whitesmoke; color: #000">
                                                 <h3 style="border-bottom: 2px solid red"><?php echo $encabezado; ?></h3>
                                                 <div class="col-md-12">
-                                                <input type="checkbox" name="PHP" value="1"><?php echo $opcion1; ?><br>
-                                                <input type="checkbox" name="JAVA" value="1"><?php echo $opcion2; ?><br>
-                                                <input type="checkbox" name="PYTHON" value="1"><?php echo $opcion3; ?><br>
-                                                <input type="checkbox" name="LARAVEL" value="1"><?php echo $opcion4; ?><br>
+                                                <input type="checkbox" name="check_box[]" value="<?php echo $valor1; ?>"><?php echo $opcion1; ?><br>
+                                                <input type="checkbox" name="check_box[]" value="<?php echo $valor2; ?>"><?php echo $opcion2; ?><br>
+                                                <input type="checkbox" name="check_box[]" value="<?php echo $valor3; ?>"><?php echo $opcion3; ?><br>
+                                                <input type="checkbox" name="check_box[]" value="<?php echo $valor4; ?>"><?php echo $opcion4; ?><br>
                                                 </div>
                                             </div>
                                             <br>
@@ -128,7 +164,7 @@ width:30%;
 
                                             <div class="container-fluid">
                                                 <center>
-                                                <input type="submit" class="btn btn-info"  value="TERMINAR EXAMEN"/>
+                                                <input type="submit" class="btn btn-info"  name="submit" />
                                                 </center>
                                             </div>
                                             
@@ -233,77 +269,56 @@ width:30%;
                                     });
                                 </script> -->
                     <?php
+$count=0;
 
-if(isset($_POST['submit']))
+       if(isset($_POST['check_box']))
 {
-        $dni = $_POST['dni'];
-        $direccion = $_POST['direccion'];
-        $Distrito = $_POST['Distrito'];
-        //$filePhoto = $_POST['filePhoto'];        foto ='$filePhoto',
-        $Telefono = $_POST['Telefono'];
-        $Edad = $_POST['Edad'];
-        $sexo = $_POST['Genero'];
-        $Estado = $_POST['Estado'];
-        $Lugar = $_POST['Lugar'];
-        $Institucion = $_POST['Institucion'];
-        $Puesto = $_POST['Puesto'];
-        $Carrera = $_POST['Carrera'];
-        $Descripcion = $_POST['Descripcion'];
+    foreach($_POST['check_box'] as $id)
+    {
+        console_log($id);
+        $count=$count+$id;
+    }
+}else{
+    console_log("ni llego");
+}
 
-        $check_value1 = isset($_POST['PHP']) ? 1 : 0;
-        $check_value2 = isset($_POST['PYHTON']) ? 1 : 0;
-        $check_value3 = isset($_POST['JAVA']) ? 1 : 0;
-        $check_value4 = isset($_POST['SQL']) ? 1 : 0;
-        $check_value5 = isset($_POST['LARAVEL']) ? 1 : 0;
-        $check_value6 = isset($_POST['NET']) ? 1 : 0;
-        $check_value7 = isset($_POST['OFIMATICA']) ? 1 : 0;
-        $check_value8 = isset($_POST['ANGULAR']) ? 1 : 0;            
+console_log($count);
+ $quer3 = mysqli_query($con,"select case when fase=2 then 'calificacion_conocimientos'
+                                         when fase=3 then 'calificacion_psicologico' end tipo, fase from postulante_empleo 
+                    where id_empleo='$get_id' and id_postulante='$id_post'")or die(mysql_error());
         
-        $sql="update postulante 
-        set dni ='$dni',sexo ='$sexo',
-        direccion ='$direccion',
-        edad='$Edad',
-        telefono ='$Telefono',
-        distrito ='$Distrito',
-        estado_civil ='$Estado',
-        lugar_nac ='$Lugar',
-        institucion ='$Institucion', 
-        carrera ='$Carrera', 
-        puesto ='$Puesto', 
-        descripcion ='$Descripcion',
-        
-        php='$check_value1',
-        python='$check_value2',
-        java='$check_value3',
-        sql_='$check_value4',
-        laravel='$check_value5',
-        net='$check_value6',
-        ofimatica='$check_value7',
-        angular='$check_value8'
-        where id_postulante = $id_post
-        ";
+ $row3= mysqli_fetch_array($quer3);
+ $tipo= $row3['tipo'];
+ $fase= $row3['fase']+1;
 
-        console_log($sql);
+   $quer4=" update postulante_empleo
+   set
+   $tipo=$count,
+   fase='$fase',
+   estado_fase=0
+   where id_empleo='$get_id' and id_postulante='$id_post'
+   ";
+   console_log($quer4);
+   $result=mysqli_query($con,$quer4);
 
-        $result=mysqli_query($con,$sql)or die(mysqli_error());
-        
-        if($result)  {
+   if($result)
+   {
 
         ?>
       <script>
-      alert('successfully updated');
-      window.location.href="my_cv.php";
+      //alert('Has postulado');
+      window.location.href="index.php";
              </script>
-        <?php
-            }
-        else{ ?>
-        <script>
-      alert('Error while updated');
+    <?php
+   }
+   else
+   { ?>
+     <script>
+      alert('Error while register');
       console.log(<?= json_encode($sql); ?>);
+      console.log(<?= json_encode($con); ?>);
       console.log(<?= json_encode($result); ?>);
+
       //window.location.href="register.php?Fail";
      </script>
-     <?php
-   }
-}
-        ?>
+     <?php } ?>
