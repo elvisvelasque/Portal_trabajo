@@ -26,7 +26,7 @@
 		</thead>
 		<tbody>
 		<?php
-		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase,a.rechazado FROM postulante_empleo a
+		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase,a.rechazado,a.fase FROM postulante_empleo a
 		inner join empleo b on a.id_empleo=b.id_empleo and a.id_postulante='$id_post' ")or die(mysqli_error());
 		console_log($query2);
 		$i = 0;
@@ -36,6 +36,7 @@
 		$fecha = $row2['fecha'];
 		$lugar =$row2['ubicacion'];
 		$puesto =$row2['titulo'];
+		$fase =$row2['fase'];
 		$estado_fase =$row2['estado_fase'];
 		$rechazado =$row2['rechazado'];
 
@@ -47,13 +48,19 @@
 			if ($estado_fase ==1 ){
 			$boton='Examen';
 			$href='examen.php?id='.$nro;
-			}else{
+			}
+		}
 
-			if ($rechazado==1)
+		if ($rechazado==1){
 			$boton='Terminado';
 			$href='#';
 			}
-		}
+
+			if ($fase ==5 ){
+			$boton='CONTRATADO';
+			$href='#';
+			}
+		
 
 		console_log($href);
 		?>

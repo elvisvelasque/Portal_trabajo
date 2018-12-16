@@ -254,6 +254,9 @@ width:30%;
                     <?php
 $count=0;
 
+if(isset($_POST['submit']))
+{
+
        if(isset($_POST['check_box']))
 {
     foreach($_POST['check_box'] as $id)
@@ -269,12 +272,14 @@ console_log($count);
 
 
  $quer3 = mysqli_query($con,"select case when fase=2 then 'calificacion_conocimientos'
-                                         when fase=3 then 'calificacion_psicologico' end tipo, fase from postulante_empleo 
+                                         when fase=3 then 'calificacion_psicologico'
+                                         when fase=4 then 'calificacion_entrevista'
+                                          end tipo, fase from postulante_empleo 
                     where id_empleo='$get_id' and id_postulante='$id_post'")or die(mysql_error());
         
  $row3= mysqli_fetch_array($quer3);
  $tipo= $row3['tipo'];
- $fase= $row3['fase']+1;
+ $fase= $row3['fase'];
 
    $quer4=" update postulante_empleo
    set
@@ -303,4 +308,5 @@ console_log($count);
 
       //window.location.href="register.php?Fail";
      </script>
-     <?php } ?>
+     <?php }
+     } ?>
