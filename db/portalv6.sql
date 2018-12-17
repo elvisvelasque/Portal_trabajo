@@ -199,8 +199,8 @@ INSERT INTO `postulante` (`id_postulante`, `email`,`contrasena`, `rol`) VALUES
 (1, 'admin@gmail.com', 'admin','A');
 
 INSERT INTO `postulante` (`id_postulante`, `nombre`, `dni`, `direccion`, `distrito`, `email`, `telefono`, `edad`, `sexo`, `estado_civil`, `lugar_nac`, `institucion`, `carrera`, `foto`, `puesto`) VALUES
-(2, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe'),
-(3, 'Javier Ormeño Vera', 'ew', 'we', 'we', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe');
+(2, 'Javier Ormeno Vera', '7894561', 'mz a 13 jr Ocona', 'SJL', 'we', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe'),
+(3, 'Juan Gomez Vera', '7412589', 'san silvestre', 'we', 'MIRAFLORES', 'wewqeqwe', 'e', 'weqwe', 'e', 'we', 'eqwe', 'q', 'weqweqwe', 'qwe');
 
 -- --------------------------------------------------------
 

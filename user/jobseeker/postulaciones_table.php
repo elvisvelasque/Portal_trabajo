@@ -13,7 +13,9 @@
 ?>
 	<form action="" method="post">
         <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
-		<div class="pull-right">	 
+         <div class="pull-right">
+                            <a href="#" onclick="window.print()" class="btn btn-info"><i class="icon-print icon-large"></i> Imprimir Postulaciones</a> 
+                            </div>
 	</div>
 		<thead>
 		<tr>		
@@ -28,7 +30,6 @@
 		<?php
 		$query2 = mysqli_query($con,"SELECT b.*,a.estado_fase,a.rechazado,a.fase FROM postulante_empleo a
 		inner join empleo b on a.id_empleo=b.id_empleo and a.id_postulante='$id_post' ")or die(mysqli_error());
-		console_log($query2);
 		$i = 0;
 		while($row2= mysqli_fetch_array($query2)){
 		    $i++;
@@ -61,8 +62,6 @@
 			$href='#';
 			}
 		
-
-		console_log($href);
 		?>
         <tr>
 		<!--<tr style=" <?php //if($stud_id==1){ echo 'display:none';}?> "> -->

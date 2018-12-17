@@ -76,6 +76,9 @@ width:30%;
                                     <div class="container">
                                         <div class="table-responsive">
                                             <table class="table table-bordered" style="color: #000; background-color: rgba(255, 255, 255, .5)">
+                                             <div class="pull-right">
+                            <a href="#" onclick="window.print()" class="btn btn-info"><i class="icon-print icon-large"></i> Imprimir Candidatos</a> 
+                            </div>
                                                 <thead>
                                                     <tr style="background-color: rgba(211,211,211, .6)">
                                                         <th style="text-align: center"><h4><b>#</b></h4></th>
@@ -92,7 +95,7 @@ width:30%;
                                                 $queryJobs = "SELECT postulante_empleo.id_postulante_empleo, postulante_empleo.calificacion_cv,
                                                                   postulante_empleo.calificacion_conocimientos, postulante_empleo.calificacion_psicologico, postulante_empleo.calificacion_entrevista,
                                                                   postulante_empleo.fase, postulante.nombre, postulante_empleo.estado_fase, empleo.titulo FROM postulante_empleo 
-                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.rechazado = 0
+                                                                  INNER JOIN postulante ON postulante_empleo.id_postulante = postulante.id_postulante AND postulante_empleo.rechazado = 0 and postulante.rol='P'
                                                                   INNER JOIN empleo ON empleo.id_empleo = postulante_empleo.id_empleo";
                                                 $stmtJobs = mysqli_query($con,$queryJobs);
                                                 $i = 0;
@@ -163,6 +166,7 @@ width:30%;
                                 <li><a href="jobs.php">Nuevo Puesto</a></li>
                                 <li><a href="puestos_laborales.php">Puestos laborales</a></li>
                                 <li class="active"><a href="candidatos.php">Candidatos</a></li>
+                                <li><a href="postulantes.php">Total Postulantes</a></li>
                                 <li><a href="../../logout.php" >Cerrar sesión</a></li>
 
                             </ul>
@@ -175,30 +179,8 @@ width:30%;
 	</div>
     <footer>
         <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-3" style="align-items: left">
-                        <p align="left"><b><a href="default.asp" target="_blank">Inicio</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Puestos Laborales</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Mi CV</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Postulaciones</a></b></p>
-                    </div>
-                    <div class="col-sm-4 col-sm-offset-2">
-                        <label style="color: #fff;">Suscribete a nuestro boletín!</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" placeholder="Ingresa tu email" style="width: auto">
-                        </div>
-                        <div class="col-sm-5" style="align-items: left">
-                            <button type="button" class="btn btn-info">Suscribir</button>
-                        </div>
-                    </div>
-
-                </div>
-                <br>
-                <br>
-            </div>
-            <p align="center" style="color: #fff">© 2018 Multitron-Bolsa de trabajo . Todos los derechos reservados <a href="#"></a></p>
+         <br>
+                     <p align="center" style="color: #fff">© 2018 Multitron-Bolsa de trabajo . Todos los derechos reservados <a href="#"></a></p>
 
         </div>
     </footer>

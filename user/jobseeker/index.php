@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <link href="images/hand.png" rel="icon">
-<title>Online job portel</title>
+<title>Bolsa de trabajo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <meta name="keywords" content="Bank Online Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -128,29 +128,10 @@ width:30%;
 	</div>
     <footer>
         <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-3" style="align-items: left">
-                        <p align="left"><b><a href="default.asp" target="_blank">Inicio</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Puestos Laborales</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Mi CV</a></b></p>
-                        <p><b><a href="default.asp" target="_blank">Postulaciones</a></b></p>
-                    </div>
-                    <div class="col-sm-4 col-sm-offset-2">
-                        <label style="color: #fff;">Suscribete a nuestro boletín!</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" placeholder="Ingresa tu email" style="width: auto">
-                        </div>
-                        <div class="col-sm-5" style="align-items: left">
-                            <button type="button" class="btn btn-info">Suscribir</button>
-                        </div>
-                    </div>
-
-                </div>
-                <br>
-                <br>
-            </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <p align="center" style="color: #fff">© 2018 Multitron-Bolsa de trabajo . Todos los derechos reservados <a href="#"></a></p>
 
         </div>
